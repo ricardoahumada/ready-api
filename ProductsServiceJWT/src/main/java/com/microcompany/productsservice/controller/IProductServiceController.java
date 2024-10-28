@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import java.util.List;
 
-@RequestMapping("/default")
+@RequestMapping(value = "/default", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE})
 @Validated
 //@CrossOrigin(origins = {"http://localhost:8080/"})
 @Tag(name = "API de productos", description = "Esta es una api para crear y consumir productos")
@@ -37,7 +37,7 @@ public interface IProductServiceController {
             @ApiResponse(responseCode = "200", description = "Todo bien"),
             @ApiResponse(responseCode = "404", description = "El producto no existe")
     })
-    @RequestMapping(value = "/{pid}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "/{pid}", method = RequestMethod.GET)
     public ResponseEntity<Product> getOne(
             @Parameter(name = "pid", description = "El identificador del producto", required = true, example = "234")
             @Min(1) @PathVariable("pid") Long id
@@ -48,7 +48,7 @@ public interface IProductServiceController {
             @ApiResponse(responseCode = "202", description = "Todo bien"),
             @ApiResponse(responseCode = "412", description = "El producto enviado no es correcto")
     })
-    @RequestMapping(value = "", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE})
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<Product> create(
             @io.swagger.v3.oas.annotations.parameters.RequestBody(required = true, description = "El producto a crear sin Id.")
             @Valid @RequestBody

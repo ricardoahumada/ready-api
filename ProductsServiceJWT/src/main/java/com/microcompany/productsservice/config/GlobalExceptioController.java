@@ -2,7 +2,6 @@ package com.microcompany.productsservice.config;
 
 import com.microcompany.productsservice.exception.GlobalProductException;
 import com.microcompany.productsservice.exception.NewProductException;
-import com.microcompany.productsservice.exception.ProductNotfoundException;
 import com.microcompany.productsservice.model.StatusMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

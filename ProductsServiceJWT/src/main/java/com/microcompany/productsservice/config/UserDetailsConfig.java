@@ -21,7 +21,7 @@ public class UserDetailsConfig {
     public UserDetailsService userDetailsService() {
         return new UserDetailsService() {
 
-            /*@Override
+            @Override
             public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
                 return userRepo.findByEmail(email)
                         .orElseThrow(
@@ -29,17 +29,17 @@ public class UserDetailsConfig {
                                         "User " + email + " not found"
                                 )
                         );
-            }*/
+            }
 
-            @Override
+           /* @Override
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-                BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+//                BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
 
                 List<com.microcompany.productsservice.model.User> users = List.of(
-                        new com.microcompany.productsservice.model.User(1, "user@email.com", enc.encode("upass"), ERole.USER),
-                        new com.microcompany.productsservice.model.User(1, "admin@email.com", enc.encode("apass"), ERole.ADMIN),
-                        new com.microcompany.productsservice.model.User(1, "gestor@email.com", enc.encode("gpass"), ERole.GESTOR),
-                        new com.microcompany.productsservice.model.User(2, "cliente@email.com", enc.encode("cpass"), ERole.CLIENTE)
+                        new com.microcompany.productsservice.model.User(1, "user@email.com", "{noop}upass", ERole.USER),
+                        new com.microcompany.productsservice.model.User(1, "admin@email.com", "{noop}apass", ERole.ADMIN),
+                        new com.microcompany.productsservice.model.User(1, "gestor@email.com", "{noop}gpass", ERole.GESTOR),
+                        new com.microcompany.productsservice.model.User(2, "cliente@email.com", "{noop}cpass", ERole.CLIENTE)
                 );
 
                 return users.stream()
@@ -47,7 +47,7 @@ public class UserDetailsConfig {
                         .findFirst()
                         .orElseThrow(() -> new UsernameNotFoundException("User with username - " + username + " not found"));
 
-            }
+            }*/
         };
     }
 

@@ -1,10 +1,10 @@
 package com.microcompany.productsservice.exception;
 
 
-public class ProductNotfoundException extends GlobalProductException {
+public class ProductException extends GlobalProductException {
     private static final long serialVersionUID = 3L;
 
-    public ProductNotfoundException(String message) {
+    public ProductException(String message) {
         super(message);
     }
 }

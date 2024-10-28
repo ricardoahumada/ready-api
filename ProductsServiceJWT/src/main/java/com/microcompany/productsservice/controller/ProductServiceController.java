@@ -1,7 +1,6 @@
 package com.microcompany.productsservice.controller;
 
-import com.microcompany.productsservice.exception.NewProductException;
-import com.microcompany.productsservice.exception.ProductNotfoundException;
+import com.microcompany.productsservice.exception.ProductException;
 import com.microcompany.productsservice.model.Product;
 import com.microcompany.productsservice.model.StatusMessage;
 import com.microcompany.productsservice.persistence.ProductsRepository;
@@ -10,16 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MimeType;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/products")
@@ -37,7 +30,7 @@ public class ProductServiceController implements IProductServiceController {
     }
 
     public ResponseEntity<Product> getOne(Long id) {
-        Product prod = repository.findById(id).orElseThrow(() -> new ProductNotfoundException("No existe " + id));
+        Product prod = repository.findById(id).orElseThrow(() -> new ProductException("No existe " + id));
         return ResponseEntity.status(HttpStatus.OK).body(prod);
     }
 

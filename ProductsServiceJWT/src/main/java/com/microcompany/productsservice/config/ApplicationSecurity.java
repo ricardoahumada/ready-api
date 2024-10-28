@@ -35,8 +35,8 @@ public class ApplicationSecurity {
 
     private static final String[] AUTH_WHITELIST = {
             "/auth/login",
-            "/docs/**",
-            "/users",
+
+            // -- H2 console
             "/h2-ui/**",
 
             // -- Swagger UI v2
@@ -60,16 +60,16 @@ public class ApplicationSecurity {
     private UserDetailsService userDetailsService;
 
 
-    @Bean
+    /*@Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+        return new PlaintextPasswordEncoder();
+    }*/
 
     @Bean
     public DaoAuthenticationProvider authProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService);
-        authProvider.setPasswordEncoder(passwordEncoder());
+//        authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
 
@@ -96,6 +96,8 @@ public class ApplicationSecurity {
 //                        .antMatchers("/products/**").hasAuthority(ERole.USER.name())
                                 .antMatchers(HttpMethod.GET, "/products/**").hasAnyAuthority(ERole.USER.name(), ERole.ADMIN.name())//Para acceder a productos debe ser USER
                                 .antMatchers("/products/**").hasAnyAuthority(ERole.ADMIN.name()) //admin puede hacer de todo
+                                .antMatchers(HttpMethod.GET, "/users/*").hasAnyAuthority(ERole.USER.name(), ERole.ADMIN.name())//Para acceder a productos debe ser USER
+                                .antMatchers("/users/**").hasAnyAuthority(ERole.ADMIN.name()) //admin puede hacer de todo
 //                                .antMatchers("/products/**").permitAll() // Barra libre ...para probar con @preauthorize
                                 .anyRequest().authenticated()
                 );
