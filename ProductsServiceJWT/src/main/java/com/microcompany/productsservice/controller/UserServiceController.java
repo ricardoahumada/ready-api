@@ -16,24 +16,20 @@ import javax.validation.constraints.Min;
 import java.util.List;
 
 @RestController
-@Validated
-@RequestMapping(value = "/users", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-public class UserServiceController {
+@RequestMapping(value = "/users")
+public class UserServiceController implements IUserServiceController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping(value = "")
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userRepository.findAll();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
-    @GetMapping(value = "/{uid}")
     public ResponseEntity<User> getOne(@PathVariable @Min(1) Integer uid) {
         User user = userRepository.findById(uid).orElseThrow(() -> new UserException("No existe " + uid));
         return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 
-    @PostMapping(value = "")
     public ResponseEntity createUser(@RequestBody @Valid User newUser) {
         String enc_password = "{noop}"+newUser.getPassword();
 
@@ -43,7 +39,6 @@ public class UserServiceController {
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{uid}")
     public ResponseEntity updateUser(Integer uid, User aUser) {
         aUser.setId(uid);
         userRepository.save(aUser);
@@ -52,7 +47,6 @@ public class UserServiceController {
             return new ResponseEntity<>(new StatusMessage(HttpStatus.NOT_MODIFIED.value(), "No modificado"), HttpStatus.NOT_MODIFIED);
     }
 
-    @DeleteMapping(value = "/{uid}")
     public ResponseEntity deleteUser(Integer uid) {
         userRepository.deleteById(uid);
         return ResponseEntity.noContent().build();

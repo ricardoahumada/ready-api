@@ -97,6 +97,7 @@ public class ApplicationSecurity {
                                 .antMatchers(HttpMethod.GET, "/products/**").hasAnyAuthority(ERole.USER.name(), ERole.ADMIN.name())//Para acceder a productos debe ser USER
                                 .antMatchers("/products/**").hasAnyAuthority(ERole.ADMIN.name()) //admin puede hacer de todo
                                 .antMatchers(HttpMethod.GET, "/users/*").hasAnyAuthority(ERole.USER.name(), ERole.ADMIN.name())//Para acceder a productos debe ser USER
+                                .antMatchers(HttpMethod.PUT, "/users/*").hasAnyAuthority(ERole.USER.name(), ERole.ADMIN.name())//Para acceder a productos debe ser USER
                                 .antMatchers("/users/**").hasAnyAuthority(ERole.ADMIN.name()) //admin puede hacer de todo
 //                                .antMatchers("/products/**").permitAll() // Barra libre ...para probar con @preauthorize
                                 .anyRequest().authenticated()

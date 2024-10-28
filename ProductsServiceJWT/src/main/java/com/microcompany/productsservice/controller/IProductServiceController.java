@@ -18,10 +18,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import java.util.List;
 
-@RequestMapping(value = "/default", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE})
+@RequestMapping(value = "/default", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 @Validated
 //@CrossOrigin(origins = {"http://localhost:8080/"})
-@Tag(name = "API de productos", description = "Esta es una api para crear y consumir productos")
+@Tag(name = "Endpoints de productos", description = "Usa estos endpoints para crear y consumir productos")
 public interface IProductServiceController {
 
     @GetMapping("")

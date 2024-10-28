@@ -4,6 +4,7 @@ import com.microcompany.productsservice.jwt.JwtTokenUtil;
 import com.microcompany.productsservice.model.AuthRequest;
 import com.microcompany.productsservice.model.AuthResponse;
 import com.microcompany.productsservice.model.User;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import javax.validation.Valid;
 
 
 @RestController
+@Tag(name = "Endpoint de identificación", description = "Usa este endpoint para identificarte con tu email y contraseña")
 public class AuthService {
     @Autowired
     AuthenticationManager authManager;
