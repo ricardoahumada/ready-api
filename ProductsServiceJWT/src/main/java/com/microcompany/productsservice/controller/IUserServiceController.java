@@ -28,10 +28,10 @@ public interface IUserServiceController {
     public ResponseEntity createUser(@RequestBody @Valid User newUser);
 
     @PutMapping(value = "/{uid}")
-    public ResponseEntity updateUser(Integer uid, User aUser);
+    public ResponseEntity updateUser(@PathVariable Integer uid, User aUser);
 
     @DeleteMapping(value = "/{uid}")
-    public ResponseEntity deleteUser(Integer uid);
+    public ResponseEntity deleteUser(@PathVariable Integer uid);
 
 }
 
