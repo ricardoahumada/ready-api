@@ -18,7 +18,7 @@ public class JwtTokenUtil {
     private String SECRET_KEY;
 
     public String generateAccessToken(User user) {
-        Claims claims = Jwts.claims().setSubject(String.format("%s,%s", user.getId(), user.getEmail()));
+        Claims claims = Jwts.claims().setSubject(String.format("%s,%s", user.getUid(), user.getEmail()));
         claims.put("role", user.getRole());
 
         return Jwts.builder()

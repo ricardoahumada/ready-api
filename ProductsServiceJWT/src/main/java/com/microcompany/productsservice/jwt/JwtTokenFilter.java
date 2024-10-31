@@ -80,7 +80,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         String[] jwtSubject = jwtUtil.getSubject(token).split(",");
         ERole role = jwtUtil.getRole(token);
 
-        userDetails.setId(Integer.parseInt(jwtSubject[0]));
+        userDetails.setUid(Integer.parseInt(jwtSubject[0]));
         userDetails.setEmail(jwtSubject[1]);
         userDetails.setRole(role);
 

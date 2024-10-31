@@ -26,7 +26,7 @@ import java.util.List;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer uid;
 
     @Column(nullable = false, length = 50, unique = true)
     private String email;

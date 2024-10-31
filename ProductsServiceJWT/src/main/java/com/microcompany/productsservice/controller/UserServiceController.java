@@ -33,14 +33,14 @@ public class UserServiceController implements IUserServiceController {
     public ResponseEntity createUser(@RequestBody @Valid User newUser) {
         String enc_password = "{noop}"+newUser.getPassword();
 
-        newUser.setId(null);
+        newUser.setUid(null);
         newUser.setPassword(enc_password);
         userRepository.save(newUser);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
     public ResponseEntity updateUser(Integer uid, User aUser) {
-        aUser.setId(uid);
+        aUser.setUid(uid);
         userRepository.save(aUser);
         if (aUser != null) return new ResponseEntity(aUser, HttpStatus.ACCEPTED);
         else
