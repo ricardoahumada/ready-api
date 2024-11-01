@@ -5,7 +5,7 @@ log.info("Reading csv ... ")
 def row = testRunner.testCase.testSteps["Read CSV"].currentRow;
 log.info("row: ${row}")
 
-// Get the home user folder
+// CSV path
 def fileName = "D:/Shared/MyTrainingRepos/ready-api/data_source/products/products_lite.csv";
 log.info("fileName: ${fileName}")
 
