@@ -3,6 +3,7 @@ import java.util.Date
 
 log.info("Storing results scrpit...")
 
+def stepName = "login user"
 
 // DB params
 def sql = Sql.newInstance('jdbc:mysql://localhost:3306/productsdb', 'products_user', 'rapi123', 'com.mysql.jdbc.Driver')
@@ -12,13 +13,18 @@ Date date = new Date()
 def fecha = date.format( 'yyyy-MM-dd' )
 def testStepName = 'login user'
 
+String status = '';
+def passed
+
 /* Using a property */
+/*
 def testStep =  context.testCase.getTestStepByName("Guardar token")
 def stepProperty = testStep.getProperty("token")
 def passed = stepProperty.getValue()!=null
+*/
 
 /* Rerunning a step */
-def stepName = "login user"
+
 /*
 def rtestStep =  context.testCase.getTestStepByName(stepName)
 String status = testRunner.runTestStep(rtestStep).status
@@ -27,7 +33,6 @@ log.info("status: ${status}")*/
 
 /* Searching for results */
 log.info("results: ${testRunner.results}")
-String status = '';
 for( r in testRunner.results ){
 	log.info "*** TestStep [" + r.testStep.name + "] finished with status " + r.status
 	if(stepName == r.testStep.name){		
