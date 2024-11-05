@@ -560,85 +560,6 @@
       </con:method>
     </con:resource>
   </con:interface>
-  <con:testSuite id="716047bc-5dd8-40f6-9e6b-8932ca3f1dc6" name="Productos">
-    <con:settings id="7720081e-abfa-443e-a515-749b014053f1"/>
-    <con:runType>SEQUENTIAL</con:runType>
-    <con:testCase id="c51e36b8-c929-4a39-b8d7-edd35f84803a" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Obtener todos" searchProperties="true" timeout="0">
-      <con:settings/>
-      <con:testStep type="restrequest" name="REST Request" id="247779e5-b04d-4de0-9881-8d80401f71f4">
-        <con:settings/>
-        <con:config service="Products Management API" resourcePath="/products" methodName="getAll" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="REST Request" id="6b5fbe0e-6234-46e1-a677-367ef0d6780a" mediaType="application/json">
-            <con:description xsi:nil="true"/>
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>http://localhost:9090</con:endpoint>
-            <con:request/>
-            <con:originalUri>http://localhost/products</con:originalUri>
-            <con:assertion type="Valid HTTP Status Codes" id="fd34b9f7-2b62-4f14-b143-5a1cbe2ef820" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>200</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="b7891386-5f03-430c-8a1f-7558acff8dcb" name="Response SLA">
-              <con:configuration>
-                <SLA>200</SLA>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:parameters/>
-            <con:parameterOrder/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:properties/>
-      <con:reportParameters/>
-    </con:testCase>
-    <con:testCase id="e92048d6-c74a-4a3c-b3d5-fae331ea28f3" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Buscar" searchProperties="true" timeout="0">
-      <con:settings/>
-      <con:testStep type="restrequest" name="REST Request" id="d27706e9-4f2f-4128-b710-9a4645a4a37f">
-        <con:settings/>
-        <con:config service="Products Management API" methodName="GET" resourcePath="/products" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="REST Request" id="ccce2af4-ed75-4578-8358-f680ae4896a4" mediaType="application/json">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:encoding>UTF-8</con:encoding>
-            <con:endpoint>http://localhost:9090</con:endpoint>
-            <con:request/>
-            <con:originalUri>http://localhost/products</con:originalUri>
-            <con:assertion type="Valid HTTP Status Codes" id="4c8cc326-6d49-414b-bfe8-e57d912d0c45" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>200</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="c86a0315-7306-431e-86f1-549e0c4e8d70" name="Response SLA">
-              <con:configuration>
-                <SLA>200</SLA>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:properties/>
-      <con:reportParameters/>
-    </con:testCase>
-    <con:properties/>
-    <con:reportParameters/>
-  </con:testSuite>
   <con:testSuite id="1e2ace9e-167d-4a02-8d27-002d35ef34b7" name="Identificaciòn">
     <con:settings id="5084905a-e54c-4489-9b15-66eac6c171cb"/>
     <con:runType>SEQUENTIAL</con:runType>
@@ -739,7 +660,7 @@ assert email ==~ emailRegex</scriptText>
           <con:restRequest name="get all products" id="6b5fbe0e-6234-46e1-a677-367ef0d6780a" mediaType="application/json">
             <con:description xsi:nil="true"/>
             <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Authorization" value="" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Authorization" value="Bearer ${#TestCase#token_tc}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
             </con:settings>
             <con:endpoint>http://localhost:9090</con:endpoint>
             <con:request/>
@@ -1058,7 +979,7 @@ log.info c.hello("Mike")</script>
       <con:properties>
         <con:property>
           <con:name>token_tc</con:name>
-          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwNDk2MjQxLCJleHAiOjE3MzA1ODI2NDF9.l8OOCf6YrQAY3CjNpNG5IcvMydSkEVKecN2mF4XTcNLaT03KQCABY1GwsV2EOFv7ZDtERqCqkrrrmGkWcL8AuA</con:value>
+          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwODE5MzIwLCJleHAiOjE3MzA5MDU3MjB9.I5OxWr2oq9cFrUBrW-fGIp5dZ39iWT7f2GbG92xMb91cjSznBScib3mtLhmDY9m6b2LBkcA0RPqY3yUZo5otvg</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -1074,6 +995,111 @@ for (atestCase in testSuite.testCaseList){
 		aProp.setValue(null)
 	}
 }</con:setupScript>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:testSuite id="716047bc-5dd8-40f6-9e6b-8932ca3f1dc6" name="Productos">
+    <con:settings id="7720081e-abfa-443e-a515-749b014053f1"/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="c51e36b8-c929-4a39-b8d7-edd35f84803a" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Obtener todos" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="calltestcase" name="Run Test Case" id="b70553a3-45b3-43c2-8e16-c14959ff8aa0">
+        <con:settings/>
+        <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:targetTestCase>f4348bda-2a80-4de0-b35c-d9da07e7734e</con:targetTestCase>
+          <con:properties>
+            <con:property>
+              <con:name>token_tc</con:name>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwODE5MTE0LCJleHAiOjE3MzA5MDU1MTR9.D-dO9KYsDZbRFqllkUS6TcX8Wz6wJm1H-q2NH1tI7n2DfqcYIwOFpydTf7x7U_rQCi6IKNPX3lOfLZLx67We5g</con:value>
+            </con:property>
+          </con:properties>
+          <con:returnProperties>
+            <con:entry>token_tc</con:entry>
+          </con:returnProperties>
+          <con:runMode>PARALLELL</con:runMode>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="REST Request" id="247779e5-b04d-4de0-9881-8d80401f71f4">
+        <con:settings/>
+        <con:config service="Products Management API" resourcePath="/products" methodName="getAll" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="REST Request" id="6b5fbe0e-6234-46e1-a677-367ef0d6780a" mediaType="application/json">
+            <con:description xsi:nil="true"/>
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Authorization" value="Bearer ${Run Test Case#token_tc}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/products</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="fd34b9f7-2b62-4f14-b143-5a1cbe2ef820" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="b7891386-5f03-430c-8a1f-7558acff8dcb" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>b70553a3-45b3-43c2-8e16-c14959ff8aa0</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>247779e5-b04d-4de0-9881-8d80401f71f4</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="e92048d6-c74a-4a3c-b3d5-fae331ea28f3" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Buscar" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="restrequest" name="REST Request" id="d27706e9-4f2f-4128-b710-9a4645a4a37f">
+        <con:settings/>
+        <con:config service="Products Management API" methodName="GET" resourcePath="/products" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="REST Request" id="ccce2af4-ed75-4578-8358-f680ae4896a4" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:encoding>UTF-8</con:encoding>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/products</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="4c8cc326-6d49-414b-bfe8-e57d912d0c45" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="c86a0315-7306-431e-86f1-549e0c4e8d70" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
     <con:reportParameters/>
   </con:testSuite>
   <con:requirements/>
