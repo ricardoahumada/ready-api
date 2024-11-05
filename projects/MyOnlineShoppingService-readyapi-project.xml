@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="0ef11133-db6c-4e68-8fe3-71132239175c" created="3.56.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="MyOnlineShoppingService" authProfile="Rol user" projectVersion="" updated="3.56.0 2024-10-23T13:31:25Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="c6308d89-d26a-489b-8911-43282470f9f9" name="Products Management API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="http://localhost:9090/v3/api-docs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:description>This API exposes endpoints to manage products.</con:description>
+    <con:settings id="854b273b-90f3-48eb-8064-f43534fd0cc6"/>
+    <con:definitionCache type="TEXT" rootPart="http://localhost:9090/v3/api-docs">
+      <con:part>
+        <con:url>http://localhost:9090/v3/api-docs</con:url>
+        <con:content>{"openapi":"3.0.1","info":{"title":"Products Management API","description":"This API exposes endpoints to manage products.","termsOfService":"https://www.netmind.es/terms","contact":{"name":"Contact name","url":"https://www.netmind.es","email":"contact@c.com"},"license":{"name":"MIT License","url":"https://choosealicense.com/licenses/mit/"},"version":"1.0"},"servers":[{"url":"http://localhost:9090","description":"Server URL in Development environment"},{"url":"https://localhost:8443","description":"Server URL in Production environment"}],"security":[{"Bearer Authentication":[]}],"tags":[{"name":"Endpoints de productos","description":"Usa estos endpoints para crear y consumir productos"},{"name":"Endpoint de identificación","description":"Usa este endpoint para identificarte con tu email y contraseña"},{"name":"Endpoints de usuarios","description":"Usa estos endpoints para crear y consumir usuarios"}],"paths":{"/users/{uid}":{"get":{"tags":["Endpoints de usuarios"],"operationId":"getOne","parameters":[{"name":"uid","in":"path","required":true,"style":"simple","explode":false,"schema":{"minimum":1,"type":"integer","format":"int32"}}],"responses":{"412":{"description":"Precondition Failed","content":{"*/*":{"schema":{"oneOf":[{"type":"object","additionalProperties":{"type":"string"}},{"$ref":"#/components/schemas/StatusMessage"},{"type":"string"}]}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Usuario"}}}}}},"put":{"tags":["Endpoints de usuarios"],"operationId":"updateUser","parameters":[{"name":"uid","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}},{"name":"aUser","in":"query","required":true,"style":"form","explode":true,"schema":{"$ref":"#/components/schemas/Usuario"}}],"responses":{"412":{"description":"Precondition Failed","content":{"*/*":{"schema":{"oneOf":[{"type":"object","additionalProperties":{"type":"string"}},{"$ref":"#/components/schemas/StatusMessage"},{"type":"string"}]}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"string"}}}}}},"delete":{"tags":["Endpoints de usuarios"],"operationId":"deleteUser","parameters":[{"name":"uid","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"412":{"description":"Precondition Failed","content":{"*/*":{"schema":{"oneOf":[{"type":"object","additionalProperties":{"type":"string"}},{"$ref":"#/components/schemas/StatusMessage"},{"type":"string"}]}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"string"}}}}}}},"/products/{pid}":{"get":{"tags":["Endpoints de productos"],"summary":"Obtener un producto","description":"Endpoint para obtener un producto concreto","operationId":"getOne_1","parameters":[{"name":"pid","in":"path","description":"El identificador del producto","required":true,"style":"simple","explode":false,"schema":{"minimum":1,"type":"integer","format":"int64"},"example":234}],"responses":{"412":{"description":"Precondition Failed","content":{"*/*":{"schema":{"oneOf":[{"type":"object","additionalProperties":{"type":"string"}},{"$ref":"#/components/schemas/StatusMessage"},{"type":"string"}]}}}},"200":{"description":"Todo bien","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Producto"}}}},"404":{"description":"El producto no existe","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Producto"}}}}}},"put":{"tags":["Endpoints de productos"],"operationId":"updateProduct","parameters":[{"name":"pid","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int64"}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/Producto"}}},"required":true},"responses":{"412":{"description":"Precondition Failed","content":{"*/*":{"schema":{"oneOf":[{"type":"object","additionalProperties":{"type":"string"}},{"$ref":"#/components/schemas/StatusMessage"},{"type":"string"}]}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"string"}}}}}},"delete":{"tags":["Endpoints de productos"],"operationId":"deleteProduct","parameters":[{"name":"pid","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int64"}}],"responses":{"412":{"description":"Precondition Failed","content":{"*/*":{"schema":{"oneOf":[{"type":"object","additionalProperties":{"type":"string"}},{"$ref":"#/components/schemas/StatusMessage"},{"type":"string"}]}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"string"}}}}}}},"/users":{"get":{"tags":["Endpoints de usuarios"],"operationId":"getAllUsers","responses":{"412":{"description":"Precondition Failed","content":{"*/*":{"schema":{"oneOf":[{"type":"object","additionalProperties":{"type":"string"}},{"$ref":"#/components/schemas/StatusMessage"},{"type":"string"}]}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Usuario"}}}}}}},"post":{"tags":["Endpoints de usuarios"],"operationId":"createUser","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/Usuario"}}},"required":true},"responses":{"412":{"description":"Precondition Failed","content":{"*/*":{"schema":{"oneOf":[{"type":"object","additionalProperties":{"type":"string"}},{"$ref":"#/components/schemas/StatusMessage"},{"type":"string"}]}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"string"}}}}}}},"/products":{"get":{"tags":["Endpoints de productos"],"operationId":"getAll","parameters":[{"name":"text","in":"query","required":false,"style":"form","explode":true,"schema":{"type":"string"}}],"responses":{"412":{"description":"Precondition Failed","content":{"*/*":{"schema":{"oneOf":[{"type":"object","additionalProperties":{"type":"string"}},{"$ref":"#/components/schemas/StatusMessage"},{"type":"string"}]}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Producto"}}}}}}}},"/auth/login":{"post":{"tags":["Endpoint de identificación"],"operationId":"login","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AuthRequest"}}},"required":true},"responses":{"412":{"description":"Precondition Failed","content":{"*/*":{"schema":{"oneOf":[{"type":"object","additionalProperties":{"type":"string"}},{"$ref":"#/components/schemas/StatusMessage"},{"type":"string"}]}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"object"}}}}}}}},"components":{"schemas":{"StatusMessage":{"type":"object","properties":{"status_code":{"type":"integer","format":"int32"},"message":{"type":"string"}}},"Usuario":{"type":"object","properties":{"uid":{"type":"integer","format":"int32"},"email":{"type":"string"},"password":{"type":"string"},"role":{"type":"string","enum":["USER","ADMIN","GESTOR","CLIENTE"]}},"description":"Representa un usuario del sistema"},"Producto":{"required":["name","serial"],"type":"object","properties":{"Id":{"type":"integer","description":"El identificador único del producto. Debe ser un número mayor que 0. No es requerido en POST y PUT","format":"int64","example":234},"name":{"maxLength":20,"minLength":3,"type":"string"},"serial":{"type":"string"}},"description":"Representa un producto a intercambiar"},"AuthRequest":{"required":["email","password"],"type":"object","properties":{"email":{"type":"string"},"password":{"type":"string"}}}},"securitySchemes":{"Bearer_Authentication":{"type":"http","scheme":"bearer","bearerFormat":"JWT"}}}}</con:content>
+        <con:type>https://swagger.io/openapiv3/specification</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>http://localhost:9090</con:endpoint>
+      <con:endpoint>https://localhost:8443</con:endpoint>
+    </con:endpoints>
+    <con:resource name="/auth/login" path="/auth/login" id="61928a68-b42c-4b90-a6bd-ca147b962e84">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="login" id="7fd28fe0-4202-4ce3-a9a6-3d37187a452e" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>Precondition Failed</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>OK</con:description>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "email" : "string",
+  "password" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Login user" id="f63b9cfe-3d0a-4383-a2b2-4d675f1bd254" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request>{\r
+  "email" : "user@email.com",\r
+  "password" : "upass"\r
+}</con:request>
+          <con:originalUri>http://localhost/auth/login</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Login admin" id="f63b9cfe-3d0a-4383-a2b2-4d675f1bd254" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request>{\r
+  "email" : "admin@email.com",\r
+  "password" : "apass"\r
+}</con:request>
+          <con:originalUri>http://localhost/auth/login</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/products" path="/products" id="e3ca9700-081b-40f6-99c0-609ac40bd4f3">
+      <con:settings/>
+      <con:parameters/>
+      <con:resource name="" path="" id="0e22ba55-0ec0-4b59-9dcb-e39b148ff59c">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="getAll" id="e6eb0bc9-30b6-4b46-a65f-6122bd8aea96" method="GET">
+          <con:settings/>
+          <con:parameters>
+            <con:parameter required="true">
+              <con:name>text</con:name>
+              <con:value/>
+              <con:style>QUERY</con:style>
+              <con:default/>
+            </con:parameter>
+          </con:parameters>
+          <con:request name="con filtro" id="a6664659-abaf-4285-bb53-bd3ff3dd374f" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/products</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="text" value="Tr"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>text</con:entry>
+            </con:parameterOrder>
+          </con:request>
+        </con:method>
+      </con:resource>
+      <con:method name="getAll" id="5603f676-49a0-4831-8450-f8e124547670" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>Precondition Failed</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>OK</con:description>
+        </con:representation>
+        <con:request name="sin filtro" id="33b8dd81-d45d-46f2-a3e8-ec1c1d7991e4" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://localhost/products</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder/>
+        </con:request>
+      </con:method>
+      <con:method name="create" id="9ed3186c-b34b-41a7-8910-c303977fedf6" method="POST">
+        <con:description>Endpoint para crear un producto concreto</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>El producto enviado no es correcto</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>202</con:status>
+          <con:params/>
+          <con:description>Todo bien</con:description>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "Id" : 234,
+  "name" : "string",
+  "serial" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="39b8d64a-0d9a-44bc-8f74-36ae92c39f26" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request>{\r
+  "Id" : 234,\r
+  "name" : "string",\r
+  "serial" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/products/{pid}" path="/products/{pid}" id="8858cec8-d4c4-4a45-9c8e-3489d7d1df9b">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="getOne_1" id="2c9f52cf-4b71-40a9-848e-979d97629afa" method="GET">
+        <con:description>Endpoint para obtener un producto concreto</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>pid</con:name>
+            <con:style>TEMPLATE</con:style>
+            <con:description>El identificador del producto</con:description>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>Precondition Failed</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Todo bien</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:description>El producto no existe</con:description>
+        </con:representation>
+        <con:request name="Request 1" id="fee68b3a-89ac-4909-82ac-0660df87ff99" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:credentials/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="deleteProduct" id="90684152-6767-4a1c-9612-2258055d3400" method="DELETE">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>pid</con:name>
+            <con:style>TEMPLATE</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>Precondition Failed</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>OK</con:description>
+        </con:representation>
+        <con:request name="Request 1" id="e38d04ca-8c0b-41d3-be86-caf47dd6bf7f" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:credentials/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="updateProduct" id="f4b2d4d1-07d1-4821-a3d5-6946b9b2942e" method="PUT">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>pid</con:name>
+            <con:style>TEMPLATE</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>Precondition Failed</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>OK</con:description>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "Id" : 234,
+  "name" : "string",
+  "serial" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="4046e70a-6e7e-4e88-b448-1485f3d7c81f" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request>{\r
+  "Id" : 234,\r
+  "name" : "string",\r
+  "serial" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/users" path="/users" id="f37d7b82-b9de-48f1-9dbc-46eca6844d45">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="getAllUsers" id="04fc0cd6-56e5-400f-8ac9-5b1a9bd00c5f" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>Precondition Failed</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>OK</con:description>
+        </con:representation>
+        <con:request name="Request 1" id="f31919dd-c25a-45d8-b6ba-e17edc38ec2f" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:credentials/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="createUser" id="2816eda2-a554-4e4e-b0ac-41c194581a23" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>Precondition Failed</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>OK</con:description>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "uid" : 0,
+  "email" : "string",
+  "password" : "string",
+  "role" : "USER"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="fec32c31-9f71-4089-a3b6-2fd8684ab3c3" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request>{\r
+  "uid" : 0,\r
+  "email" : "string",\r
+  "password" : "string",\r
+  "role" : "USER"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/users/{uid}" path="/users/{uid}" id="e27fcfd6-e49c-437f-b14b-5e163bcabb2f">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="getOne" id="06f719c5-a1fb-4c33-8ad5-4c02914fdee7" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>uid</con:name>
+            <con:style>TEMPLATE</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>Precondition Failed</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>OK</con:description>
+        </con:representation>
+        <con:request name="Request 1" id="4e06cd16-9b69-434d-8c34-b83497d5b90a" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:credentials/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="deleteUser" id="f75b02e4-c602-4b3a-b024-8e56f8d6422c" method="DELETE">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>uid</con:name>
+            <con:style>TEMPLATE</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>Precondition Failed</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>OK</con:description>
+        </con:representation>
+        <con:request name="Request 1" id="eb682d99-8a3b-4f3a-a210-46eec31cfa94" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:credentials/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="updateUser" id="b2483292-23ab-4bd5-918f-f3ac818ed809" method="PUT">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>uid</con:name>
+            <con:style>TEMPLATE</con:style>
+          </con:parameter>
+          <con:parameter required="true">
+            <con:name>aUser</con:name>
+            <con:style>QUERY</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>412</con:status>
+          <con:params/>
+          <con:description>Precondition Failed</con:description>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>OK</con:description>
+        </con:representation>
+        <con:request name="Request 1" id="c04187a6-fce5-41ca-9e1e-ce414aa85e83" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:credentials/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository>
+    <con:oAuth20AuthEntry>
+      <con:name>Rol user</con:name>
+      <con:type>OAuth 2.0</con:type>
+      <con:accessToken>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwNzk0MzgzLCJleHAiOjE3MzA4ODA3ODN9.7qoRcSLJl8GI6uj9FWqp_X1mRagrhuWJ4aY-yzIb0HI9LFzkt32wZOGcYXUGPu3OOnJ02RWX5srBUZXKZCN-jA</con:accessToken>
+      <con:accessTokenPosition>HEADER</con:accessTokenPosition>
+      <con:accessTokenStatus>ENTERED_MANUALLY</con:accessTokenStatus>
+      <con:accessTokenStartingStatus>ENTERED_MANUALLY</con:accessTokenStartingStatus>
+      <con:oAuth2Flow>JWT_GRANT</con:oAuth2Flow>
+      <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
+      <con:jwtConfiguration/>
+      <con:responseType>id_token</con:responseType>
+    </con:oAuth20AuthEntry>
+    <con:oAuth20AuthEntry>
+      <con:name>Rol admin</con:name>
+      <con:type>OAuth 2.0</con:type>
+      <con:accessToken>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyLGFkbWluQGVtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlzcyI6ImNvbS5taWNyb2NvbXBhbnkiLCJpYXQiOjE3MzA3OTQ2MDgsImV4cCI6MTczMDg4MTAwOH0.flUcU1MwfHPJKu5ULfIaVQxHv8YLOEJcEuJxQ7RtSucqODoz1FzMxua_B1icWgEgKBacIG9w_MSsrwThMaExxQ</con:accessToken>
+      <con:accessTokenPosition>HEADER</con:accessTokenPosition>
+      <con:accessTokenStatus>ENTERED_MANUALLY</con:accessTokenStatus>
+      <con:accessTokenStartingStatus>ENTERED_MANUALLY</con:accessTokenStartingStatus>
+      <con:oAuth2Flow>JWT_GRANT</con:oAuth2Flow>
+      <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
+      <con:jwtConfiguration/>
+      <con:responseType>id_token</con:responseType>
+    </con:oAuth20AuthEntry>
+  </con:authRepository>
+  <con:tags/>
+</con:soapui-project>
