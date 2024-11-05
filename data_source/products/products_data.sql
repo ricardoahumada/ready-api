@@ -1018,3 +1018,15 @@ INSERT INTO `products` (`name`, `serial`) VALUES
 ('Stringtough', '581-659-7164');
 
 
+DROP TABLE IF EXISTS `results`;
+
+CREATE TABLE `results` (
+  `id` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `teststepname` varchar(256) NOT NULL,
+  `resultado` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `results` ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `results` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
