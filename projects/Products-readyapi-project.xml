@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="be76e90d-4d41-450a-bb21-d0f41da3ee75" created="3.55.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="MyOnlineShoppingService" projectVersion="" updated="3.55.0 2024-10-04T09:33:05Z" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="be76e90d-4d41-450a-bb21-d0f41da3ee75" created="3.55.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="MyOnlineShoppingService" projectVersion="" updated="3.55.0 2024-10-04T09:33:05Z" resourceRoot="" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:interface xsi:type="con:RestService" id="323491ab-a212-4d15-ab36-66b0924a1790" name="Products Management API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="http://localhost:9090/v3/api-docs" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:description>This API exposes endpoints to manage products.</con:description>
@@ -563,7 +563,274 @@
   <con:testSuite id="1e2ace9e-167d-4a02-8d27-002d35ef34b7" name="Identificaciòn">
     <con:settings id="5084905a-e54c-4489-9b15-66eac6c171cb"/>
     <con:runType>SEQUENTIAL</con:runType>
-    <con:testCase id="f4348bda-2a80-4de0-b35c-d9da07e7734e" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="LoginUser TC" searchProperties="true" timeout="0">
+    <con:testCase id="34ddccd7-2b20-484c-b407-7f2a3550ce17" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Identificacion USER" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="restrequest" name="login user" id="a04957bb-3a34-4037-809f-c8e53e381f6e">
+        <con:settings/>
+        <con:config service="Products Management API" resourcePath="/auth/login" methodName="login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="login user" id="7dd1a2b4-231c-4617-b2dd-d07917dd5efc" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request>{\r
+  "email" : "user@email.com",\r
+  "password" : "upass"\r
+}</con:request>
+            <con:originalUri>http://localhost/auth/login</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="5386601c-cb72-4eb7-8d99-f75547944fd7" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="b321386e-b081-4ae1-af20-af98f00ca6b9" name="Response SLA">
+              <con:configuration>
+                <SLA>300</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath RegEx Match" id="0aec2146-4fd8-40eb-a69e-808287b30f12" name="JSONPath RegEx Match">
+              <con:configuration>
+                <path>$['accessToken']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+                <regEx>^[\w-]+\.[\w-]+\.[\w-]+$</regEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasink" name="Guardar token" id="82895e49-dc75-453a-ab9c-d82f822090a5">
+        <con:settings/>
+        <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSink type="Property">
+            <con:configuration>
+              <prefix/>
+              <content>${login user#Response#$['accessToken']}</content>
+              <suffix/>
+              <property>token</property>
+            </con:configuration>
+          </con:dataSink>
+          <con:properties>
+            <con:property>
+              <con:name>token</con:name>
+              <con:value/>
+            </con:property>
+          </con:properties>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Update TC token" id="2895c3f1-8712-42a4-8eb0-01eeffbff29d">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+            <con:name>token</con:name>
+            <con:sourceType>token</con:sourceType>
+            <con:sourceStep>Guardar token</con:sourceStep>
+            <con:sourcePath/>
+            <con:targetType>user_token_tc</con:targetType>
+            <con:targetStep>#TestCase#</con:targetStep>
+            <con:targetPath/>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:properties>
+        <con:property>
+          <con:name>user_token_tc</con:name>
+          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTA4NTE0LCJleHAiOjE3MzA5OTQ5MTR9.DktZvZRLVQBYfsBKK5YdziDRXMAN3S6dt5oIiAvSZI-lpbVy0EgrH3hzEImLDF2v4EnNINMMkfdHAGrKq1w2Kg</con:value>
+        </con:property>
+      </con:properties>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="9555b4de-930d-47eb-8d50-fa7abcf64281" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Identificacion ADMIN" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="restrequest" name="login admin" id="3897308b-5ae2-4dd2-b268-67433f11dae6">
+        <con:settings/>
+        <con:config service="Products Management API" resourcePath="/auth/login" methodName="login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="login admin" id="7dd1a2b4-231c-4617-b2dd-d07917dd5efc" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request>{\r
+  "email" : "admin@email.com",\r
+  "password" : "apass"\r
+}</con:request>
+            <con:originalUri>http://localhost/auth/login</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="10e7001c-594c-4cad-8e52-74dce00264d5" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="416fc00c-2c44-40a3-b28a-bf5e89579e80" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath RegEx Match" id="935ba3f3-d544-42dc-b2b7-203f5c1feb97" name="JSONPath RegEx Match">
+              <con:configuration>
+                <path>$['accessToken']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+                <regEx>^[\w-]+\.[\w-]+\.[\w-]+$</regEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasink" name="Guardar token" id="294f9cf5-3e8f-42ff-88cd-cd634b99c767">
+        <con:settings/>
+        <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSink type="Property">
+            <con:configuration>
+              <prefix/>
+              <content>${login user#Response#$['accessToken']}</content>
+              <suffix/>
+              <property>token</property>
+            </con:configuration>
+          </con:dataSink>
+          <con:properties>
+            <con:property>
+              <con:name>token</con:name>
+              <con:value/>
+            </con:property>
+          </con:properties>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Update TC token" id="eb350cc6-24a4-412f-aae9-a05fa9cf00f2">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+            <con:name>token</con:name>
+            <con:sourceType>token</con:sourceType>
+            <con:sourceStep>Guardar token</con:sourceStep>
+            <con:sourcePath/>
+            <con:targetType>admin_token_tc</con:targetType>
+            <con:targetStep>#TestCase#</con:targetStep>
+            <con:targetPath/>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:properties>
+        <con:property>
+          <con:name>admin_token_tc</con:name>
+          <con:value/>
+        </con:property>
+      </con:properties>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="e8140bb0-dc83-4675-ac55-14a2aa50ea2c" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Rechazo Usuarios No validos" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="datasource" name="genFakeUsers" id="e30d47dd-f2ba-4684-8655-61147f2adbcd">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Data Generator">
+            <con:configuration>
+              <generatedDataCount>10</generatedDataCount>
+              <generatorsTotalNumber>2</generatorsTotalNumber>
+              <lastSelectedProperty>1</lastSelectedProperty>
+              <GeneratorType0>EMAIL</GeneratorType0>
+              <PropertyName0>email</PropertyName0>
+              <repetitionCountemail>0</repetitionCountemail>
+              <repeatValuesemail>false</repeatValuesemail>
+              <GeneratorType1>SET</GeneratorType1>
+              <PropertyName1>password</PropertyName1>
+              <repetitionCountpassword>0</repetitionCountpassword>
+              <repeatValuespassword>false</repeatValuespassword>
+              <ValueFromSetIsSequenceValuepassword>false</ValueFromSetIsSequenceValuepassword>
+              <ValueFromSetStringspassword>upass</ValueFromSetStringspassword>
+              <ValueFromSetStringspassword>apass</ValueFromSetStringspassword>
+              <escapeSpaceSequence/>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>email</con:property>
+          <con:property>password</con:property>
+          <con:startRow>1</con:startRow>
+          <con:endRow>100</con:endRow>
+          <con:recordsPerIteration>1</con:recordsPerIteration>
+          <con:completeLastOperation>true</con:completeLastOperation>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+          <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="login" id="ce9f6ed4-2831-41c1-b785-de1972a70293">
+        <con:settings/>
+        <con:config service="Products Management API" methodName="login" resourcePath="/auth/login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="login" id="8f3816a2-98f2-4f42-b4dd-78a68b2c5620" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:encoding>UTF-8</con:encoding>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request>{
+  "email" : "${genFakeUsers#email}",
+  "password" : "${genFakeUsers#password}"
+}</con:request>
+            <con:originalUri>http://localhost/auth/login</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="b5de5352-056e-4cd0-bc59-80b93c679d42" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>401</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="62f9a976-344b-4970-9ec5-dc08ddd03ef4" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Simple NotContains" id="2e6d64bc-4374-4fea-a12f-1cd3d01ab0b4" name="Not Contains">
+              <con:configuration>
+                <token/>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasourceloop" name="Data Source Loop" id="8dd85840-e6f0-45b5-8bb6-790dcca7360c">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>genFakeUsers</dataSourceStep>
+          <targetStep>login</targetStep>
+          <discardResults>true</discardResults>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="f4348bda-2a80-4de0-b35c-d9da07e7734e" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="ScriptsTC" searchProperties="true" timeout="0">
       <con:settings/>
       <con:testStep type="restrequest" name="login user" id="bc00cfc1-3f4d-48e1-a6db-9302ee136c82">
         <con:settings/>
@@ -1000,42 +1267,32 @@ for (atestCase in testSuite.testCaseList){
   <con:testSuite id="716047bc-5dd8-40f6-9e6b-8932ca3f1dc6" name="Productos">
     <con:settings id="7720081e-abfa-443e-a515-749b014053f1"/>
     <con:runType>SEQUENTIAL</con:runType>
-    <con:testCase id="c51e36b8-c929-4a39-b8d7-edd35f84803a" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Obtener todos" searchProperties="true" timeout="0">
-      <con:settings/>
-      <con:testStep type="calltestcase" name="Run Test Case" id="b70553a3-45b3-43c2-8e16-c14959ff8aa0">
-        <con:settings/>
-        <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:targetTestCase>f4348bda-2a80-4de0-b35c-d9da07e7734e</con:targetTestCase>
-          <con:properties>
-            <con:property>
-              <con:name>token_tc</con:name>
-              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwODE5MTE0LCJleHAiOjE3MzA5MDU1MTR9.D-dO9KYsDZbRFqllkUS6TcX8Wz6wJm1H-q2NH1tI7n2DfqcYIwOFpydTf7x7U_rQCi6IKNPX3lOfLZLx67We5g</con:value>
-            </con:property>
-          </con:properties>
-          <con:returnProperties>
-            <con:entry>token_tc</con:entry>
-          </con:returnProperties>
-          <con:runMode>PARALLELL</con:runMode>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="REST Request" id="247779e5-b04d-4de0-9881-8d80401f71f4">
+    <con:testCase id="c1623736-b683-4107-8097-8412103dec5c" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Rechazo Zona privada" searchProperties="true" timeout="0">
+      <con:settings>
+        <con:setting id="IncludeOverview">true</con:setting>
+        <con:setting id="IncludeResults">true</con:setting>
+        <con:setting id="FlowLayout">false</con:setting>
+        <con:setting id="ErrorDetails">true</con:setting>
+        <con:setting id="IncludeCoverage">true</con:setting>
+      </con:settings>
+      <con:testStep type="restrequest" name="getAll" id="4f4d8546-5a7f-40f2-9551-080ec382b060">
         <con:settings/>
         <con:config service="Products Management API" resourcePath="/products" methodName="getAll" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="REST Request" id="6b5fbe0e-6234-46e1-a677-367ef0d6780a" mediaType="application/json">
+          <con:restRequest name="getAll" id="6b5fbe0e-6234-46e1-a677-367ef0d6780a" mediaType="application/json">
             <con:description xsi:nil="true"/>
             <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Authorization" value="Bearer ${Run Test Case#token_tc}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
             </con:settings>
             <con:endpoint>http://localhost:9090</con:endpoint>
             <con:request/>
             <con:originalUri>http://localhost/products</con:originalUri>
-            <con:assertion type="Valid HTTP Status Codes" id="fd34b9f7-2b62-4f14-b143-5a1cbe2ef820" name="Valid HTTP Status Codes">
+            <con:assertion type="Valid HTTP Status Codes" id="295adc08-cf75-4382-9f76-3798c010c579" name="Valid HTTP Status Codes">
               <con:settings/>
               <con:configuration>
-                <codes>200</codes>
+                <codes>401</codes>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="b7891386-5f03-430c-8a1f-7558acff8dcb" name="Response SLA">
+            <con:assertion type="Response SLA Assertion" id="bc7d89a9-6d1e-433e-8732-39cb42c22648" name="Response SLA">
               <con:configuration>
                 <SLA>200</SLA>
               </con:configuration>
@@ -1050,39 +1307,131 @@ for (atestCase in testSuite.testCaseList){
           </con:restRequest>
         </con:config>
       </con:testStep>
-      <con:properties/>
-      <con:reportParameters/>
-      <con:breakPoints>
-        <con:testStepId>b70553a3-45b3-43c2-8e16-c14959ff8aa0</con:testStepId>
-        <con:status>NONE</con:status>
-        <con:properties/>
-      </con:breakPoints>
-      <con:breakPoints>
-        <con:testStepId>247779e5-b04d-4de0-9881-8d80401f71f4</con:testStepId>
-        <con:status>NONE</con:status>
-        <con:properties/>
-      </con:breakPoints>
-    </con:testCase>
-    <con:testCase id="e92048d6-c74a-4a3c-b3d5-fae331ea28f3" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Buscar" searchProperties="true" timeout="0">
-      <con:settings/>
-      <con:testStep type="restrequest" name="REST Request" id="d27706e9-4f2f-4128-b710-9a4645a4a37f">
+      <con:testStep type="datasource" name="genIds" id="eaa976a5-d5fa-4309-b358-e7b5359f7888">
         <con:settings/>
-        <con:config service="Products Management API" methodName="GET" resourcePath="/products" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="REST Request" id="ccce2af4-ed75-4578-8358-f680ae4896a4" mediaType="application/json">
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Data Generator">
+            <con:configuration>
+              <generatedDataCount>10</generatedDataCount>
+              <generatorsTotalNumber>1</generatorsTotalNumber>
+              <lastSelectedProperty>0</lastSelectedProperty>
+              <GeneratorType0>INT</GeneratorType0>
+              <PropertyName0>pid</PropertyName0>
+              <repetitionCountpid>0</repetitionCountpid>
+              <repeatValuespid>false</repeatValuespid>
+              <IntegerDataGeneratorMinValuepid>11</IntegerDataGeneratorMinValuepid>
+              <IntegerDataGeneratorMaxValuepid>100</IntegerDataGeneratorMaxValuepid>
+              <IntegerDataGeneratorStepValuepid>1</IntegerDataGeneratorStepValuepid>
+              <IntegerDataGeneratorConsequentValuespid>true</IntegerDataGeneratorConsequentValuespid>
+              <escapeSpaceSequence/>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>pid</con:property>
+          <con:startRow>1</con:startRow>
+          <con:endRow>5</con:endRow>
+          <con:recordsPerIteration>1</con:recordsPerIteration>
+          <con:completeLastOperation>true</con:completeLastOperation>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+          <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="getOne" id="ab8a4fef-d6e1-4c11-b3b8-e03a42faf056">
+        <con:settings/>
+        <con:config service="Products Management API" resourcePath="/products/{pid}" methodName="getOne_1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="getOne" id="af82532a-29df-4ec3-8516-19f331548774" mediaType="application/json">
+            <con:description xsi:nil="true"/>
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
             </con:settings>
-            <con:encoding>UTF-8</con:encoding>
             <con:endpoint>http://localhost:9090</con:endpoint>
             <con:request/>
-            <con:originalUri>http://localhost/products</con:originalUri>
-            <con:assertion type="Valid HTTP Status Codes" id="4c8cc326-6d49-414b-bfe8-e57d912d0c45" name="Valid HTTP Status Codes">
+            <con:originalUri>http://localhost/products/1</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="0d14ae0d-d394-49ab-b64d-e187de229f7e" name="Valid HTTP Status Codes">
               <con:settings/>
               <con:configuration>
-                <codes>200</codes>
+                <codes>401</codes>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="c86a0315-7306-431e-86f1-549e0c4e8d70" name="Response SLA">
+            <con:assertion type="Response SLA Assertion" id="627873b7-8ee4-40e2-af33-c1b57a569d9e" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="pid" value="${getIds#pid}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>pid</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasourceloop" name="GetOneLoop" id="76feffc3-4f7c-4f6f-8424-11782fd96ace">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>genIds</dataSourceStep>
+          <targetStep>getOne</targetStep>
+          <discardResults>true</discardResults>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasource" name="newUserData" id="4885fff2-73f8-479f-ad82-83dfc09f5d85">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="File">
+            <con:configuration>
+              <fileName>D:/Shared/MyTrainingRepos/ready-api/data_source/products/products_lite.csv</fileName>
+              <separator>,</separator>
+              <trim>true</trim>
+              <charset>Cp1252</charset>
+              <quotedValues>false</quotedValues>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>name</con:property>
+          <con:property>serial</con:property>
+          <con:startRow>2</con:startRow>
+          <con:endRow>11</con:endRow>
+          <con:recordsPerIteration>1</con:recordsPerIteration>
+          <con:completeLastOperation>true</con:completeLastOperation>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+          <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="create" id="2a66cdb3-2bf2-4a8d-bb81-1cb6f35aa4fc">
+        <con:settings/>
+        <con:config service="Products Management API" resourcePath="/products" methodName="create" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="create" id="582acf46-7ef0-4166-93fb-e90fd2b06601" mediaType="application/json" postQueryString="false">
+            <con:description>Endpoint para crear un producto concreto</con:description>
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request>{\r
+  "name" : "${newUserData#name}",\r
+  "serial" : "${newUserData#serial}"
+}</con:request>
+            <con:originalUri>http://localhost/products</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="8f8a27de-36e7-41eb-9c0f-cfa74c21846a" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>401</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="89364d4c-8295-47c0-98bc-1de01f8f2ce8" name="Response SLA">
               <con:configuration>
                 <SLA>200</SLA>
               </con:configuration>
@@ -1093,6 +1442,289 @@ for (atestCase in testSuite.testCaseList){
             </con:credentials>
             <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
             <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasourceloop" name="CreateLoop" id="5204911f-cf06-449c-95f3-eac93a8064ff">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>newUserData</dataSourceStep>
+          <targetStep>create</targetStep>
+          <discardResults>true</discardResults>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>4f4d8546-5a7f-40f2-9551-080ec382b060</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>ab8a4fef-d6e1-4c11-b3b8-e03a42faf056</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>76feffc3-4f7c-4f6f-8424-11782fd96ace</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>2a66cdb3-2bf2-4a8d-bb81-1cb6f35aa4fc</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>5204911f-cf06-449c-95f3-eac93a8064ff</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="d71cdb45-a19d-41bd-98f4-32be6f6082a6" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Acceso a Zona privada Solo lectura" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="calltestcase" name="Run Login USER" id="51f2704d-9f04-41d1-a3d2-80fca10bbff2">
+        <con:settings/>
+        <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:targetTestCase>34ddccd7-2b20-484c-b407-7f2a3550ce17</con:targetTestCase>
+          <con:properties>
+            <con:property>
+              <con:name>user_token_tc</con:name>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTEwMDIzLCJleHAiOjE3MzA5OTY0MjN9.mriBaIMQTzUZK57ga4KuP6jbYhkT8Cyicl1ja7p47jJtbLw_x9KMpxV_SLgMJP3dpcsEsNRi1kGWpXzekp0Vrw</con:value>
+            </con:property>
+          </con:properties>
+          <con:returnProperties>
+            <con:entry>user_token_tc</con:entry>
+          </con:returnProperties>
+          <con:runMode>PARALLELL</con:runMode>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="getAll" id="9246a084-1ce5-4968-90c3-c46e1fd51691">
+        <con:settings/>
+        <con:config service="Products Management API" resourcePath="/products" methodName="getAll" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="getAll" id="6b5fbe0e-6234-46e1-a677-367ef0d6780a" mediaType="application/json">
+            <con:description xsi:nil="true"/>
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Authorization" value="Bearer ${Run Login USER#user_token_tc}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/products</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="ca0744b2-24fb-4bb9-bb59-72bc383b3b47" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="aabd3fdc-fea0-48cf-9561-036dd9cfc1b3" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath RegEx Match" id="cd204c50-7a3f-43bb-8982-4f02a4a96b37" name="JSONPath RegEx Match">
+              <con:configuration>
+                <path>$[?(@.id=~/[0-9]{1,}/)]</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+                <regEx>\[.*id.*name.*serial.*\]</regEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Valid filter" id="13a98e27-b9a2-494a-8f59-9c72be22264d">
+        <con:settings/>
+        <con:config service="Products Management API" resourcePath="/products" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Valid filter" id="c1c6ca1a-3cf2-491c-adf7-3a30a2f70f99" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Authorization" value="Bearer ${Run Login USER#user_token_tc}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/products/products</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="955b2fd9-ca61-45e3-9462-a73bd21c2f15" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="adeee27e-0658-40de-9985-3a2b35dbfef8" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="text" value="Tr"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>text</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="No objects filter" id="2066d57e-a11a-4ac2-b60d-ab43686aed7e">
+        <con:settings/>
+        <con:config service="Products Management API" resourcePath="/products" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="No objects filter" id="c1c6ca1a-3cf2-491c-adf7-3a30a2f70f99" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Authorization" value="Bearer ${Run Login USER#user_token_tc}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/products/products</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="955b2fd9-ca61-45e3-9462-a73bd21c2f15" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>404</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="adeee27e-0658-40de-9985-3a2b35dbfef8" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="text" value="xxxxxx"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>text</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="8f0c827a-564a-4bfc-b093-a1d5908aea1b" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Recorrer Productos" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="calltestcase" name="Run Login USER" id="87189728-9b4e-49ea-a5c5-cb360f6b7fc2">
+        <con:settings/>
+        <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:targetTestCase>34ddccd7-2b20-484c-b407-7f2a3550ce17</con:targetTestCase>
+          <con:properties>
+            <con:property>
+              <con:name>user_token_tc</con:name>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTExNTA2LCJleHAiOjE3MzA5OTc5MDZ9.W5ZMoX7RdtYaMrJYi4WvvGC9m4n5TElJjCzf0Yr2ygxrtqYcKmN95e_ZtrloyBzxw7YmBzAIsbYLUzuM9n3jPQ</con:value>
+            </con:property>
+          </con:properties>
+          <con:returnProperties>
+            <con:entry>user_token_tc</con:entry>
+          </con:returnProperties>
+          <con:runMode>PARALLELL</con:runMode>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="getAll" id="229095c5-83ed-43fa-997e-65e3001f791b">
+        <con:settings/>
+        <con:config service="Products Management API" resourcePath="/products" methodName="getAll" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="getAll" id="6b5fbe0e-6234-46e1-a677-367ef0d6780a" mediaType="application/json">
+            <con:description xsi:nil="true"/>
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Authorization" value="Bearer ${Run Login USER#user_token_tc}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/products</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="ca0744b2-24fb-4bb9-bb59-72bc383b3b47" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="aabd3fdc-fea0-48cf-9561-036dd9cfc1b3" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath RegEx Match" id="cd204c50-7a3f-43bb-8982-4f02a4a96b37" name="JSONPath RegEx Match">
+              <con:configuration>
+                <path>$[?(@.id=~/[0-9]{1,}/)]</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+                <regEx>\[.*id.*name.*serial.*\]</regEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasource" name="getIdsFromResponse" id="18a29b39-06c9-4921-a274-05cce258aad0">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="JSON">
+            <con:configuration>
+              <sourceStep>getAll</sourceStep>
+              <sourceProperty>Response</sourceProperty>
+              <rowPath>$</rowPath>
+              <columnPath>['id']</columnPath>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>pid</con:property>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="getOne" id="30034573-67e5-428b-a9f6-dfaecda6adac">
+        <con:settings/>
+        <con:config service="Products Management API" resourcePath="/products/{pid}" methodName="getOne_1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="getOne" id="af82532a-29df-4ec3-8516-19f331548774" mediaType="application/json">
+            <con:description xsi:nil="true"/>
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/products/</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="6ef752e7-a881-494b-b4b2-808b26457c84" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="ba1a8f57-eb1c-435e-aa9d-8d7cad0623db" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="pid" value="${getIdsFromResponse#pid}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>pid</con:entry>
+            </con:parameterOrder>
           </con:restRequest>
         </con:config>
       </con:testStep>
