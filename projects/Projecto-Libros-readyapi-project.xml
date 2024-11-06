@@ -1,0 +1,2570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="1625a5e4-5b89-4f32-8bb4-569deadb43b3" created="3.56.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="Projecto Libros" resourceRoot="" projectVersion="" updated="3.56.0 2024-10-23T13:31:25Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="465faaaa-6534-49ea-b716-1a31f9e9b9c9" name="FakeRESTApi.Web V1" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="https://fakerestapi.azurewebsites.net/swagger/v1/swagger.json" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:description xsi:nil="true"/>
+    <con:settings id="6b640d4a-3b00-4453-a9f7-5b8aa831515e"/>
+    <con:definitionCache type="TEXT" rootPart="https://fakerestapi.azurewebsites.net/swagger/v1/swagger.json">
+      <con:part>
+        <con:url>https://fakerestapi.azurewebsites.net/swagger/v1/swagger.json</con:url>
+        <con:content>{"openapi":"3.0.1","info":{"title":"FakeRESTApi.Web V1","version":"v1"},"servers":[{"url":"/"}],"paths":{"/api/v1/Activities/{id}":{"get":{"tags":["Activities"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"$ref":"#/components/schemas/Activity"}},"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Activity"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Activity"}}}}}},"put":{"tags":["Activities"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"requestBody":{"content":{"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Activity"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Activity"}},"application/*+json; v=1.0":{"schema":{"$ref":"#/components/schemas/Activity"}}}},"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"$ref":"#/components/schemas/Activity"}},"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Activity"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Activity"}}}}}},"delete":{"tags":["Activities"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success"}}}},"/api/v1/Authors":{"get":{"tags":["Authors"],"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Author"}}},"application/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Author"}}},"text/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Author"}}}}}}},"post":{"tags":["Authors"],"requestBody":{"content":{"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}},"application/*+json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}}}},"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}},"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}}}}}}},"/api/v1/Authors/authors/books/{idBook}":{"get":{"tags":["Authors"],"parameters":[{"name":"idBook","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Author"}}},"application/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Author"}}},"text/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Author"}}}}}}}},"/api/v1/Authors/{id}":{"get":{"tags":["Authors"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}},"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}}}}}},"put":{"tags":["Authors"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"requestBody":{"content":{"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}},"application/*+json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}}}},"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}},"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Author"}}}}}},"delete":{"tags":["Authors"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success"}}}},"/api/v1/Books":{"get":{"tags":["Books"],"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Book"}}},"application/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Book"}}},"text/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Book"}}}}}}},"post":{"tags":["Books"],"requestBody":{"content":{"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Book"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Book"}},"application/*+json; v=1.0":{"schema":{"$ref":"#/components/schemas/Book"}}}},"responses":{"200":{"description":"Success"}}}},"/api/v1/Books/{id}":{"get":{"tags":["Books"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"$ref":"#/components/schemas/Book"}},"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Book"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Book"}}}}}},"put":{"tags":["Books"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"requestBody":{"content":{"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Book"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/Book"}},"application/*+json; v=1.0":{"schema":{"$ref":"#/components/schemas/Book"}}}},"responses":{"200":{"description":"Success"}}},"delete":{"tags":["Books"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success"}}}},"/api/v1/CoverPhotos":{"get":{"tags":["CoverPhotos"],"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/CoverPhoto"}}},"application/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/CoverPhoto"}}},"text/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/CoverPhoto"}}}}}}},"post":{"tags":["CoverPhotos"],"requestBody":{"content":{"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}},"application/*+json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}}}},"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}},"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}}}}}}},"/api/v1/CoverPhotos/books/covers/{idBook}":{"get":{"tags":["CoverPhotos"],"parameters":[{"name":"idBook","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/CoverPhoto"}}},"application/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/CoverPhoto"}}},"text/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/CoverPhoto"}}}}}}}},"/api/v1/CoverPhotos/{id}":{"get":{"tags":["CoverPhotos"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}},"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}}}}}},"put":{"tags":["CoverPhotos"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"requestBody":{"content":{"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}},"application/*+json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}}}},"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}},"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/CoverPhoto"}}}}}},"delete":{"tags":["CoverPhotos"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success"}}}},"/api/v1/Users":{"get":{"tags":["Users"],"responses":{"200":{"description":"Success","content":{"text/plain; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/User"}}},"application/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/User"}}},"text/json; v=1.0":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/User"}}}}}}},"post":{"tags":["Users"],"requestBody":{"content":{"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/User"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/User"}},"application/*+json; v=1.0":{"schema":{"$ref":"#/components/schemas/User"}}}},"responses":{"200":{"description":"Success"}}}},"/api/v1/Users/{id}":{"get":{"tags":["Users"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success"}}},"put":{"tags":["Users"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"requestBody":{"content":{"application/json; v=1.0":{"schema":{"$ref":"#/components/schemas/User"}},"text/json; v=1.0":{"schema":{"$ref":"#/components/schemas/User"}},"application/*+json; v=1.0":{"schema":{"$ref":"#/components/schemas/User"}}}},"responses":{"200":{"description":"Success"}}},"delete":{"tags":["Users"],"parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success"}}}},"/api/v1/Activities":{"description":"","get":{"description":"","parameters":[{"name":"Accept","in":"header","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"text/json; v=1.0":{"example":""}}}}},"post":{"description":"","requestBody":{"content":{"application/json; v=1.0":{"example":"{\r\n  \"id\" : 0,\r\n  \"title\" : \"string\",\r\n  \"dueDate\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"completed\" : true\r\n}"},"text/json; v=1.0":{"example":"{\r\n  \"id\" : 0,\r\n  \"title\" : \"string\",\r\n  \"dueDate\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"completed\" : true\r\n}"},"application/*+json; v=1.0":{"example":"{\r\n  \"id\" : 0,\r\n  \"title\" : \"string\",\r\n  \"dueDate\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"completed\" : true\r\n}"}}},"responses":{"200":{"description":"Success","content":{"text/json; v=1.0":{"example":""}}}}}}},"components":{"schemas":{"Activity":{"type":"object","properties":{"id":{"type":"integer","format":"int32"},"title":{"type":"string","nullable":true},"dueDate":{"type":"string","format":"date-time"},"completed":{"type":"boolean"}},"additionalProperties":false},"Author":{"type":"object","properties":{"id":{"type":"integer","format":"int32"},"idBook":{"type":"integer","format":"int32"},"firstName":{"type":"string","nullable":true},"lastName":{"type":"string","nullable":true}},"additionalProperties":false},"Book":{"type":"object","properties":{"id":{"type":"integer","format":"int32"},"title":{"type":"string","nullable":true},"description":{"type":"string","nullable":true},"pageCount":{"type":"integer","format":"int32"},"excerpt":{"type":"string","nullable":true},"publishDate":{"type":"string","format":"date-time"}},"additionalProperties":false},"CoverPhoto":{"type":"object","properties":{"id":{"type":"integer","format":"int32"},"idBook":{"type":"integer","format":"int32"},"url":{"type":"string","format":"uri","nullable":true}},"additionalProperties":false},"User":{"type":"object","properties":{"id":{"type":"integer","format":"int32"},"userName":{"type":"string","nullable":true},"password":{"type":"string","nullable":true}},"additionalProperties":false}}}}</con:content>
+        <con:type>https://swagger.io/openapiv3/specification</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+    </con:endpoints>
+    <con:resource name="/api/v1/Activities" path="/api/v1/Activities" id="19acd819-8dbd-4c79-a79e-ac6e1536150e">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="83314086-bb7f-4d3e-94fc-d060b1ecae36" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[NOT IMPLEMENTED]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+} ]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+} ]</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="3f6ba1b7-c7f9-4f19-ab5c-f2427e5a953f" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Content-Type" value="application/json" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://fakerestapi.azurewebsites.net/api/v1/Activities</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder/>
+        </con:request>
+      </con:method>
+      <con:method name="POST" id="d5dda1fb-010b-40d2-8227-d9dc51e3b7b2" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/*+json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="907020f4-7679-49b9-97cb-abcd91334c71" mediaType="multipart/form-data" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "dueDate" : "2015-07-20T15:49:04-07:00",\r
+  "completed" : true\r
+}</con:request>
+          <con:originalUri>https://fakerestapi.azurewebsites.net/api/v1/Activities</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Request 2" id="231b8315-d838-43e5-8772-02817ffc4ae6" mediaType="text/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "dueDate" : "2015-07-20T15:49:04-07:00",\r
+  "completed" : true\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Request 3" id="a816a078-986e-4a8a-af6d-6c759b9b864f" mediaType="application/*+json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "dueDate" : "2015-07-20T15:49:04-07:00",\r
+  "completed" : true\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/Books" path="/api/v1/Books" id="51fcc669-4a3e-46b6-a7e9-f12fbbdb9e90">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="970d94e7-86eb-42d3-8aa2-444fcbae2d5b" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[NOT IMPLEMENTED]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "title" : "string",
+  "description" : "string",
+  "pageCount" : 0,
+  "excerpt" : "string",
+  "publishDate" : "2015-07-20T15:49:04-07:00"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "title" : "string",
+  "description" : "string",
+  "pageCount" : 0,
+  "excerpt" : "string",
+  "publishDate" : "2015-07-20T15:49:04-07:00"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="36648265-f716-4c16-8944-def15b8e10bb" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder/>
+        </con:request>
+      </con:method>
+      <con:method name="POST" id="bd4f57ea-28cd-41b0-a8c7-e9f353d7fad2" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "description" : "string",
+  "pageCount" : 0,
+  "excerpt" : "string",
+  "publishDate" : "2015-07-20T15:49:04-07:00"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "description" : "string",
+  "pageCount" : 0,
+  "excerpt" : "string",
+  "publishDate" : "2015-07-20T15:49:04-07:00"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/*+json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "description" : "string",
+  "pageCount" : 0,
+  "excerpt" : "string",
+  "publishDate" : "2015-07-20T15:49:04-07:00"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="3eba106f-1521-426e-b723-a33cbf597df7" mediaType="application/json; v=1.0" postQueryString="false">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "description" : "string",\r
+  "pageCount" : 0,\r
+  "excerpt" : "string",\r
+  "publishDate" : "2015-07-20T15:49:04-07:00"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Request 2" id="9fdbac75-7138-476c-b928-a0945c0f0b8d" mediaType="text/json; v=1.0" postQueryString="false">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "description" : "string",\r
+  "pageCount" : 0,\r
+  "excerpt" : "string",\r
+  "publishDate" : "2015-07-20T15:49:04-07:00"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Request 3" id="419b5c67-00f5-45b3-b0da-49fa5ed1dfed" mediaType="application/*+json; v=1.0" postQueryString="false">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "description" : "string",\r
+  "pageCount" : 0,\r
+  "excerpt" : "string",\r
+  "publishDate" : "2015-07-20T15:49:04-07:00"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/Books/{id}" path="/api/v1/Books/{id}" id="51322358-df9f-48a8-be2c-973060cf7a69">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="adb36e1f-367d-44df-af8e-34c307471518" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:style>TEMPLATE</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "description" : "string",
+  "pageCount" : 0,
+  "excerpt" : "string",
+  "publishDate" : "2015-07-20T15:49:04-07:00"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "description" : "string",
+  "pageCount" : 0,
+  "excerpt" : "string",
+  "publishDate" : "2015-07-20T15:49:04-07:00"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="2379b833-ed65-4657-9783-d373dd12c9d5" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://fakerestapi.azurewebsites.net/api/v1/Books/2</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="id" value="2"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+      <con:method name="DELETE" id="24db96e8-cd14-4041-8522-7f964d0a1d0c" method="DELETE">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Request 1" id="52d87862-c6bb-46da-b10e-bdf76b5d2feb" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="id" value="2"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+      <con:method name="PUT" id="adb753e1-2a0e-42da-9022-2a2cbbd6cc10" method="PUT">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "description" : "string",
+  "pageCount" : 0,
+  "excerpt" : "string",
+  "publishDate" : "2015-07-20T15:49:04-07:00"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "description" : "string",
+  "pageCount" : 0,
+  "excerpt" : "string",
+  "publishDate" : "2015-07-20T15:49:04-07:00"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/*+json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "description" : "string",
+  "pageCount" : 0,
+  "excerpt" : "string",
+  "publishDate" : "2015-07-20T15:49:04-07:00"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="93621827-076d-4336-ac06-9434b02893e1" mediaType="application/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "description" : "string",\r
+  "pageCount" : 0,\r
+  "excerpt" : "string",\r
+  "publishDate" : "2015-07-20T15:49:04-07:00"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="id" value="2"/>
+          </con:parameters>
+        </con:request>
+        <con:request name="Request 2" id="bac56e19-4a07-419a-8215-3a24bc00ac7d" mediaType="text/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "description" : "string",\r
+  "pageCount" : 0,\r
+  "excerpt" : "string",\r
+  "publishDate" : "2015-07-20T15:49:04-07:00"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="id" value="2"/>
+          </con:parameters>
+        </con:request>
+        <con:request name="Request 3" id="0a2ca461-ca40-4584-b27b-10a703887320" mediaType="application/*+json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "description" : "string",\r
+  "pageCount" : 0,\r
+  "excerpt" : "string",\r
+  "publishDate" : "2015-07-20T15:49:04-07:00"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="id" value="2"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/CoverPhotos" path="/api/v1/CoverPhotos" id="23075f21-6114-426b-a946-9806cfbb40de">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="a2c12ac1-b200-4a9b-9047-fa87bea57028" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[NOT IMPLEMENTED]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="90015d38-fbf1-4c74-90ab-f9e754085a55" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="POST" id="edfce582-2d8e-4e84-961b-c5e3e3284fe9" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/*+json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="3d8832f1-75e8-4c65-8819-f3d630d7144c" mediaType="application/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "url" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Request 2" id="57c34771-ff12-462a-9dba-0717a4e5d9f4" mediaType="text/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "url" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Request 3" id="81006ec6-53eb-4e66-a6a8-49c803829513" mediaType="application/*+json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "url" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/CoverPhotos/books/covers/{idBook}" path="/api/v1/CoverPhotos/books/covers/{idBook}" id="c4509fe1-140d-480c-b924-59b4a8032c2b">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="40bf5014-d3c2-49e7-bdf6-92597561ac84" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>idBook</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[NOT IMPLEMENTED]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="0f52f113-6971-4ab4-9999-86c06f678b74" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>idBook</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/CoverPhotos/{id}" path="/api/v1/CoverPhotos/{id}" id="48de33f2-277f-4114-8de5-703f8287dd5c">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="397d1cf4-4b4d-43c3-9a51-10d5b67fe0ce" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="99c8f7d3-33a0-4451-9e10-e9594432a2a6" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+      <con:method name="DELETE" id="888b15f2-b894-4175-9592-7c602dfeb727" method="DELETE">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Request 1" id="c1edd9c1-204f-4758-b369-0b1101a0e10a" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+      <con:method name="PUT" id="f5f2201d-24ac-4abd-af86-dc36a0806bef" method="PUT">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/*+json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "url" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="097b7cc3-eeeb-4bc7-809f-e176408b96c4" mediaType="application/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "url" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+        <con:request name="Request 2" id="743fe7d4-a3a6-44af-9251-84ef35584ae6" mediaType="text/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "url" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+        <con:request name="Request 3" id="39496046-c174-43f7-8194-4d76647615fe" mediaType="application/*+json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "url" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/Users" path="/api/v1/Users" id="5d05676c-0e3f-4d1a-9c6f-c661f73ade8b">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="8463e0e2-834e-4b5b-8d69-ab010f7c8154" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[NOT IMPLEMENTED]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "userName" : "string",
+  "password" : "string"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "userName" : "string",
+  "password" : "string"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="95d13c46-f7c3-432a-893d-7792776c10c3" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="POST" id="57684feb-4d91-4e8e-8f56-f5f4812f48be" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "userName" : "string",
+  "password" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "userName" : "string",
+  "password" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/*+json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "userName" : "string",
+  "password" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="c0a1e0bd-d168-4d77-b905-6c33f6e7e3d4" mediaType="application/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "userName" : "string",\r
+  "password" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Request 2" id="3ddf4480-0aab-4699-9fcd-04abe7eda8fa" mediaType="text/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "userName" : "string",\r
+  "password" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Request 3" id="36a040dd-10d8-4752-9876-fc8c815fbe9b" mediaType="application/*+json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "userName" : "string",\r
+  "password" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/Users/{id}" path="/api/v1/Users/{id}" id="50b3edaf-f908-49cb-a41e-5a7168ae30fd">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="1f44f256-4b92-4654-90cd-369cbcf41dd2" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Request 1" id="06fd1582-41c7-4f34-ba26-d349657596ad" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+      <con:method name="DELETE" id="41957d8c-e0b5-4e2c-9e41-f1b2eb6389a3" method="DELETE">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Request 1" id="e6c1ca0a-435b-4a75-b282-f88be33d55d5" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+      <con:method name="PUT" id="f777c2e2-f8a2-4efb-98d6-784206f351d3" method="PUT">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "userName" : "string",
+  "password" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "userName" : "string",
+  "password" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/*+json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "userName" : "string",
+  "password" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="e5158bef-07da-4441-9605-f7fcd92e26e7" mediaType="application/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "userName" : "string",\r
+  "password" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+        <con:request name="Request 2" id="aa9d7268-b40b-4436-86a2-3f3ebebcd692" mediaType="text/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "userName" : "string",\r
+  "password" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+        <con:request name="Request 3" id="1e2d6252-48c7-440f-b55e-6403165ce93d" mediaType="application/*+json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "userName" : "string",\r
+  "password" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/Activities/{id}" path="/api/v1/Activities/{id}" id="1fe11f91-8e99-4628-8b8e-bb0aaf783d43">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="146b70b7-e7a6-4842-ba2d-b3e4c58cdcdc" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="ab3c0c95-3fed-4c72-bd0a-8313b01049c8" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+      <con:method name="DELETE" id="f5714872-97e6-4e9f-8d04-9ec35290974e" method="DELETE">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Request 1" id="e97e8145-dae0-4dea-aeb7-16d2539c4ba0" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+      <con:method name="PUT" id="6fcaee22-9d45-478a-a4f2-eeac3f57fe67" method="PUT">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/*+json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "title" : "string",
+  "dueDate" : "2015-07-20T15:49:04-07:00",
+  "completed" : true
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="af808a64-0327-4db0-96c7-aa680fd09689" mediaType="application/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "dueDate" : "2015-07-20T15:49:04-07:00",\r
+  "completed" : true\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+        <con:request name="Request 2" id="5de42ad5-eaa6-427e-b9eb-371b54270d2c" mediaType="text/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "dueDate" : "2015-07-20T15:49:04-07:00",\r
+  "completed" : true\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+        <con:request name="Request 3" id="ab643428-f326-4fa8-b438-71bdb005fe69" mediaType="application/*+json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "title" : "string",\r
+  "dueDate" : "2015-07-20T15:49:04-07:00",\r
+  "completed" : true\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/Authors" path="/api/v1/Authors" id="0f6c4cd9-34ce-4967-933b-dc1eb1d6c8b5">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="8d29c052-706f-4d05-9246-32e34e4391c4" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[NOT IMPLEMENTED]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="e65af220-65fd-40fc-a7fa-6e66ef2d3354" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="POST" id="0ba34aa5-61e7-4b9d-97e0-22693a6705f9" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/*+json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="899351ba-1bba-47fc-b092-6cfb2513b4ff" mediaType="application/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "firstName" : "string",\r
+  "lastName" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Request 2" id="a87b222a-7632-4604-bf13-177a66c3f748" mediaType="text/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "firstName" : "string",\r
+  "lastName" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+        <con:request name="Request 3" id="90fdd9ff-1500-4bf2-bae8-f415deaff354" mediaType="application/*+json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "firstName" : "string",\r
+  "lastName" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/Authors/authors/books/{idBook}" path="/api/v1/Authors/authors/books/{idBook}" id="88aa043d-45ca-4914-9ab8-d8359c93dfe1">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="20ea99ef-7569-424b-8db3-142b7e36925d" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>idBook</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[NOT IMPLEMENTED]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>[ {
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+} ]</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="eacefc4d-4c02-40b9-b28c-edbdf1fa8984" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>idBook</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/v1/Authors/{id}" path="/api/v1/Authors/{id}" id="603e63a6-f4d0-4473-b0ca-7decd40177b4">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="GET" id="baf3330c-aecf-48aa-82c1-54e3df64f578" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="4c8f45a2-1593-42d2-b860-eb4cf062cb30" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+      <con:method name="DELETE" id="122c8c4a-28da-4684-b553-2f70f4709ded" method="DELETE">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Request 1" id="65c543b7-8ab1-431d-acb5-5742c21a1c9f" mediaType="application/json">
+          <con:description xsi:nil="true"/>
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+      <con:method name="PUT" id="875f8344-5dbe-4524-9aca-f6c18746059d" method="PUT">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/plain; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Success</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>text/json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST" id="">
+          <con:mediaType>application/*+json; v=1.0</con:mediaType>
+          <con:status/>
+          <con:params/>
+          <con:description xsi:nil="true"/>
+          <con:sampleContent>{
+  "id" : 0,
+  "idBook" : 0,
+  "firstName" : "string",
+  "lastName" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="003c64c2-83bf-4af3-bb71-437d553d4813" mediaType="application/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "firstName" : "string",\r
+  "lastName" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+        <con:request name="Request 2" id="79cb34f2-a039-45a0-93e9-b73e83d611f9" mediaType="text/json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "firstName" : "string",\r
+  "lastName" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+        <con:request name="Request 3" id="89d747fb-2ded-45b5-8e4b-14acff445d29" mediaType="application/*+json; v=1.0">
+          <con:settings/>
+          <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+          <con:request>{\r
+  "id" : 0,\r
+  "idBook" : 0,\r
+  "firstName" : "string",\r
+  "lastName" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="a1544437-0173-4c04-8da6-e6f9c9b25f23" name="Vistando libros">
+    <con:settings id="15ccf6d4-249e-4f2b-b36b-e9dba67d2d1c"/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="de3cf215-dd42-42e0-8cd9-13e6583d1f87" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Listar libros" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="restrequest" name="REST Request" id="28a4fe24-cfdd-4595-a2dd-f71929a1c1c9">
+        <con:settings/>
+        <con:config service="FakeRESTApi.Web V1" resourcePath="/api/v1/Books" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="REST Request" id="36648265-f716-4c16-8944-def15b8e10bb" mediaType="application/json">
+            <con:description xsi:nil="true"/>
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="MyHeader" value="${#Project#MyProp}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://fakerestapi.azurewebsites.net/api/v1/Books</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="02bc641e-de23-4841-a71a-db75fe392f76" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="d41dbdf9-e6c0-4aab-8c1f-155f3c3b71f8" name="Response SLA">
+              <con:configuration>
+                <SLA>700</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Simple Contains" id="858b958e-5b77-4412-bb8b-1cc254b1ddc4" name="Contains">
+              <con:configuration>
+                <token>"id":.?[0-9]{0,5}</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>true</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Match" id="8182289e-4347-4729-8cb4-69032c3c1d4b" name="JSONPath Match">
+              <con:configuration>
+                <path>$[?(@.id==2)].pageCount</path>
+                <content>[200]</content>
+                <allowWildcards>true</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Sensitive Information Exposure" id="b734839a-baf8-4cac-b622-71840f94cd62" name="Sensitive Information Exposure">
+              <con:configuration>
+                <AssertionSpecificExposureList>~(?s).*Runtime (E|e)rror.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*SQLSTATE: [A-Z0-9].*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*(s|S)tack:.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*(s|S)yntax (e|E)rror\s.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*\w+/\d{1,2}(\.\d{1,3})+.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*Invalid column name\s.*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*
+            (ORA|EXP|IMP|KUP|UDE|UDI|DBV|LCD|QSM|OCI|RMAN|LFI|PLS|PLQ|AMD|CLSR|PROC|PROT|TNS|NNC|NLP|NNF|NMP|NCR|NZE|O2F|O2I|O2U|PCB|PCC|SQL|AUD|IMG|VID|DRG|LPX|LSX)-\d{5}\s
+        .*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*(p|P)owered by:? ([a-zA-Z]+)( [a-zA-Z]+){0,3}( |/)\d\.\d{1,2}\.\d{1,3}.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*at [\w\$]+(\.[\w\$&lt;>\[\],]+|\.\.ctor)+(\((([\w\$&lt;>\`\[\]]+ [\w\$&lt;>]+, )*(([\w\$&lt;>\`\[\]]+
+            [\w\$&lt;>]+)))\)|\(\))
+        .*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*&lt;\w+:frame\s*class=".*"\s*line=".*"\s*method=".*"\s*/>.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*Traceback \(most recent call last\):.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*((I|i)ncorrect|(I|i)nvalid) (s|S)yntax.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*(s|S)tack ?(t|T)race.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*(e|E)rror was:\s.*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*(v|V)ersion:? \d\.\d{1,2}\.{1,3}-?.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*from [\w\$]+(\.[\w\$&lt;>]+)+:\d+:in `.+'.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*Error in process &lt;\d+\.\d+\.\d+> with exit value:.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*STACK\s?TRACE.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*Warning: [\w]+\(\) .+ in .+ on line \d{1,6}.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*((A|a)pache|vBulletin|MySQL|PostgreSQL|phpBB|Internet Information Services)( |/)\d{1,2}(\.\d{1,3})+
+        .*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*at [a-zA-Z][\w\$]*(\.[a-zA-Z][\w\$]*)+\((Unknown Source|Native
+            Method|[a-zA-Z][\w\$]*\.([a-zA-Z]{3,5}):\d+)\)
+        .*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*[^\s]+\.rb:\d+:in `.+'.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <AssertionSpecificExposureList>~(?s).*File ".+", line [0-9]{1,6}, in.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+                <IncludeProjectSpecific>true</IncludeProjectSpecific>
+                <IncludeGlobal>false</IncludeGlobal>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="properties" name="Properties" id="63469ca2-f1da-4e7d-92ca-f739182a4002">
+        <con:settings/>
+        <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:source>C:/Curso/workspace/bookId.properties</con:source>
+          <con:target>C:/Curso/workspace/bookId.properties</con:target>
+          <con:properties>
+            <con:property>
+              <con:name>bid</con:name>
+              <con:value>34</con:value>
+            </con:property>
+          </con:properties>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Property Transfer" id="49621b3c-ea19-4777-8244-9025020762cf">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+            <con:name>id</con:name>
+            <con:sourceType>bid</con:sourceType>
+            <con:sourceStep>Properties</con:sourceStep>
+            <con:sourcePath/>
+            <con:targetType xsi:nil="true"/>
+            <con:targetStep>Properties</con:targetStep>
+            <con:targetPath/>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="goto" name="Conditional Goto" id="e7a169f5-b50a-42e9-8605-9ce05b82cad8">
+        <con:settings/>
+        <con:config xsi:type="con:GotoStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:condition>
+            <con:name>Condition 1</con:name>
+            <con:type>XPATH</con:type>
+            <con:expression>declare namespace ns1='https://fakerestapi.azurewebsites.net/api/v1/Books/2';
+//ns1:Response[1]/ns1:id[1]=33</con:expression>
+            <con:targetStep>REST Request</con:targetStep>
+          </con:condition>
+          <con:condition>
+            <con:name>Condition 2</con:name>
+            <con:type>XPATH</con:type>
+            <con:expression>declare namespace ns1='https://fakerestapi.azurewebsites.net/api/v1/Books/2';
+//ns1:Response[1]/ns1:id[1]=34</con:expression>
+            <con:targetStep>REST Request 2</con:targetStep>
+          </con:condition>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>28a4fe24-cfdd-4595-a2dd-f71929a1c1c9</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>63469ca2-f1da-4e7d-92ca-f739182a4002</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>49621b3c-ea19-4777-8244-9025020762cf</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>e7a169f5-b50a-42e9-8605-9ce05b82cad8</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="7f875b8e-9af6-4a4a-aa41-6d55a156fcb1" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="DS Test Cases" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="datasource" name="Gen DS" id="2941ae8f-f7d8-48e1-b577-75de97d974b1">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Data Generator">
+            <con:configuration>
+              <generatedDataCount>10</generatedDataCount>
+              <generatorsTotalNumber>2</generatorsTotalNumber>
+              <lastSelectedProperty>0</lastSelectedProperty>
+              <GeneratorType0>INT</GeneratorType0>
+              <PropertyName0>id</PropertyName0>
+              <repetitionCountid>0</repetitionCountid>
+              <repeatValuesid>false</repeatValuesid>
+              <IntegerDataGeneratorMinValueid>1</IntegerDataGeneratorMinValueid>
+              <IntegerDataGeneratorMaxValueid>100</IntegerDataGeneratorMaxValueid>
+              <IntegerDataGeneratorStepValueid>1</IntegerDataGeneratorStepValueid>
+              <IntegerDataGeneratorConsequentValuesid>false</IntegerDataGeneratorConsequentValuesid>
+              <GeneratorType1>CITY</GeneratorType1>
+              <PropertyName1>name</PropertyName1>
+              <repetitionCountname>0</repetitionCountname>
+              <repeatValuesname>false</repeatValuesname>
+              <escapeSpaceSequence/>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>id</con:property>
+          <con:property>name</con:property>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasource" name="File DS" id="4b770885-ee9f-4bb2-b647-0d1c3d5c4c61">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="File">
+            <con:configuration>
+              <fileName>C:/Curso/workspace/ready-api/data_source/books/books.csv</fileName>
+              <separator>,</separator>
+              <trim>true</trim>
+              <charset>Cp1252</charset>
+              <quotedValues>false</quotedValues>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>id</con:property>
+          <con:property>title</con:property>
+          <con:property>description</con:property>
+          <con:startRow>1</con:startRow>
+          <con:endRow/>
+          <con:recordsPerIteration>1</con:recordsPerIteration>
+          <con:completeLastOperation>true</con:completeLastOperation>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+          <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasource" name="BD DS" id="f906ee4a-81d6-49bc-9fb8-a27582558b0f">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Data Connection">
+            <con:configuration>
+              <Connection>Books DB( Default environment )</Connection>
+              <query>${#TestCase#books_query}</query>
+              <fetchSize/>
+              <stored-procedure>false</stored-procedure>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>books_id</con:property>
+          <con:property>books_description</con:property>
+          <con:property>books_title</con:property>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="pedir libro concreto" id="ae645eb0-2b8b-48a0-ab9b-09801bf73c33">
+        <con:settings/>
+        <con:config service="FakeRESTApi.Web V1" resourcePath="/api/v1/Books/{id}" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="pedir libro concreto" id="2379b833-ed65-4657-9783-d373dd12c9d5" mediaType="application/json">
+            <con:description xsi:nil="true"/>
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://fakerestapi.azurewebsites.net/api/v1/Books/2</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="59201b32-d8c1-4bf4-873f-3d5351fc6bcb" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="ecb71487-ecb9-4720-a356-ebceba60cf50" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Simple Contains" id="253278f5-c69e-4c7f-b484-4fdc1bb191c1" name="Contains">
+              <con:configuration>
+                <token>${BD DS#books_title}</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="id" value="${BD DS#books_id}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>id</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasourceloop" name="Loop ids" id="c5972b30-2a7d-4d3c-ac33-6f2104c366be">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>Gen DS</dataSourceStep>
+          <targetStep>REST Request 2</targetStep>
+          <discardResults>true</discardResults>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="crear nuevo libro" id="8f986fc8-94d0-4c82-9c67-94b787b029b8">
+        <con:settings/>
+        <con:config service="FakeRESTApi.Web V1" resourcePath="/api/v1/Books" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="crear nuevo libro" id="3eba106f-1521-426e-b723-a33cbf597df7" mediaType="application/json; v=1.0" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+            <con:request>{\r
+  "id" : ${BD DS#books_id},\r
+  "title" : "${BD DS#books_title}",\r
+  "description": "${BD DS#books_description}",\r
+  "pageCount" : 0,\r
+  "excerpt" : "string",\r
+  "publishDate" : "2015-07-20T15:49:04-07:00"\r
+}</con:request>
+            <con:originalUri>https://fakerestapi.azurewebsites.net/api/v1/Books</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="a289c798-d348-4a7b-8d1f-549b6d3e3769" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="cb6d9531-48dd-42d5-a26f-823a29afd4dc" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Simple Contains" id="d866a10a-962a-45c1-8300-050fa8be929d" name="Contains">
+              <con:configuration>
+                <token>${BD DS#books_title}</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="jdbc" name="JDBC Request" id="6fde6f0e-e268-4203-a632-ea98d068af0f">
+        <con:settings>
+          <con:setting id="prettyPrintResponse">true</con:setting>
+        </con:settings>
+        <con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dbConnectionName>Books DB</con:dbConnectionName>
+          <con:driver>com.mysql.jdbc.Driver</con:driver>
+          <con:connectionString>jdbc:mysql://127.0.0.1:3306/readyapidb?user=readyapi_user&amp;password=PASS_VALUE</con:connectionString>
+          <con:password>rapi123</con:password>
+          <con:connectionProperties/>
+          <con:query>SELECT title FROM books WHERE id=${BD DS#books_id}</con:query>
+          <con:assertion type="Simple Contains" id="7f403b8d-0edc-479e-be5f-bad31d46627a" name="Contains">
+            <con:configuration>
+              <token>${BD DS#books_title}</token>
+              <ignoreCase>false</ignoreCase>
+              <useRegEx>false</useRegEx>
+            </con:configuration>
+          </con:assertion>
+          <con:properties/>
+        </con:config>
+      </con:testStep>
+      <con:properties>
+        <con:property>
+          <con:name>books_query</con:name>
+          <con:value>Select books.id As books_id,   books.description As books_description,   books.title As books_title From books Limit 10</con:value>
+        </con:property>
+      </con:properties>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>2941ae8f-f7d8-48e1-b577-75de97d974b1</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>ae645eb0-2b8b-48a0-ab9b-09801bf73c33</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>c5972b30-2a7d-4d3c-ac33-6f2104c366be</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>4b770885-ee9f-4bb2-b647-0d1c3d5c4c61</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>f906ee4a-81d6-49bc-9fb8-a27582558b0f</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>8f986fc8-94d0-4c82-9c67-94b787b029b8</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>6fde6f0e-e268-4203-a632-ea98d068af0f</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="2f3a4b81-a34d-4400-bbb9-da5565361f94" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Visitar Libros uno a uno" searchProperties="true" timeout="0">
+      <con:settings>
+        <con:setting id="IncludeOverview">true</con:setting>
+        <con:setting id="IncludeResults">true</con:setting>
+        <con:setting id="FlowLayout">false</con:setting>
+        <con:setting id="ErrorDetails">true</con:setting>
+        <con:setting id="IncludeCoverage">true</con:setting>
+      </con:settings>
+      <con:testStep type="restrequest" name="Lisat de libros" id="e90919b1-5757-4f7a-9c31-b10e92eb7059">
+        <con:settings/>
+        <con:config service="FakeRESTApi.Web V1" resourcePath="/api/v1/Books" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Lisat de libros" id="36648265-f716-4c16-8944-def15b8e10bb" mediaType="application/json">
+            <con:description xsi:nil="true"/>
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://fakerestapi.azurewebsites.net/api/v1/Books</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="487661b7-1cd5-4c19-986a-a74d70750fb5" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="b20775df-5e15-42a9-898a-5fa8074fffb1" name="Response SLA">
+              <con:configuration>
+                <SLA>500</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasource" name="Get_ids_from list" id="bba467a8-c5d2-497e-9239-18f5a0d4a5ef">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="JSON">
+            <con:configuration>
+              <sourceStep>Lisat de libros</sourceStep>
+              <sourceProperty>Response</sourceProperty>
+              <rowPath>$</rowPath>
+              <columnPath>['id']</columnPath>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>id</con:property>
+          <con:startRow>0</con:startRow>
+          <con:endRow>9</con:endRow>
+          <con:recordsPerIteration>1</con:recordsPerIteration>
+          <con:completeLastOperation>true</con:completeLastOperation>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+          <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Visitar un libro" id="f6fc7df0-7965-440e-99e6-e05e7e0944b6">
+        <con:settings/>
+        <con:config service="FakeRESTApi.Web V1" resourcePath="/api/v1/Books/{id}" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Visitar un libro" id="2379b833-ed65-4657-9783-d373dd12c9d5" mediaType="application/json">
+            <con:description xsi:nil="true"/>
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://fakerestapi.azurewebsites.net/api/v1/Books/2</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="59201b32-d8c1-4bf4-873f-3d5351fc6bcb" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="ecb71487-ecb9-4720-a356-ebceba60cf50" name="Response SLA">
+              <con:configuration>
+                <SLA>400</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Simple Contains" id="253278f5-c69e-4c7f-b484-4fdc1bb191c1" name="Contains">
+              <con:configuration>
+                <token>${BD DS#books_title}</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonSchemaCompliance" id="f643f324-22d6-4469-98ea-371a908b81bb" name="JSON Schema Compliance">
+              <con:configuration>
+                <schemaUrl>https://fakerestapi.azurewebsites.net/swagger/v1/swagger.json</schemaUrl>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="SwaggerComplianceAssertion" id="027ab06f-713f-4012-a4d6-bde6f932053f" name="Swagger Compliance Assertion">
+              <con:configuration>
+                <swaggerUrl>https://fakerestapi.azurewebsites.net/swagger/v1/swagger.json</swaggerUrl>
+                <strictMode>true</strictMode>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Match" id="41c42bc3-8228-42c6-8312-cec8357e46f0" name="JSONPath Match">
+              <con:configuration>
+                <path>$['id']</path>
+                <content>${Get_ids_from list#id}</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath RegEx Match" id="daeb1ac8-86c8-436a-95c7-3a981d754d4b" name="JSONPath RegEx Match">
+              <con:configuration>
+                <path>$</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+                <regEx>.*"id".*"title".*"description".*</regEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="id" value="${Get_ids_from list#id}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>id</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasourceloop" name="Data Source Loop" id="ea84f94d-c241-454f-94d3-203478b28562">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>Get_ids_from list</dataSourceStep>
+          <targetStep>Visitar un libro</targetStep>
+          <discardResults>true</discardResults>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:requirements/>
+  <con:properties>
+    <con:property>
+      <con:name>MyProp</con:name>
+      <con:value>My Val</con:value>
+    </con:property>
+    <con:property>
+      <con:name>mime</con:name>
+      <con:value>application/json</con:value>
+    </con:property>
+  </con:properties>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer>
+    <con:databaseConnection>
+      <con:name>Books DB</con:name>
+      <con:driver>com.mysql.jdbc.Driver</con:driver>
+      <con:connectionString>jdbc:mysql://127.0.0.1:3306/readyapidb?user=readyapi_user&amp;password=PASS_VALUE</con:connectionString>
+      <con:password>rapi123</con:password>
+      <con:connectionProperties/>
+    </con:databaseConnection>
+  </con:databaseConnectionContainer>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository>
+    <con:awsSignatureAuthEntry>
+      <con:name>Dev</con:name>
+      <con:type>AWS Signature</con:type>
+    </con:awsSignatureAuthEntry>
+  </con:authRepository>
+  <con:tags/>
+</con:soapui-project>
