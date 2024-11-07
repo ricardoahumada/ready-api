@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="1625a5e4-5b89-4f32-8bb4-569deadb43b3" created="3.56.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="Projecto Libros" resourceRoot="" projectVersion="" updated="3.56.0 2024-10-23T13:31:25Z" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="1625a5e4-5b89-4f32-8bb4-569deadb43b3" created="3.56.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="Projecto Libros Demo" resourceRoot="" projectVersion="" updated="3.56.0 2024-10-23T13:31:25Z" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:interface xsi:type="con:RestService" id="465faaaa-6534-49ea-b716-1a31f9e9b9c9" name="FakeRESTApi.Web V1" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="https://fakerestapi.azurewebsites.net/swagger/v1/swagger.json" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:description xsi:nil="true"/>
@@ -2498,6 +2498,58 @@
         </con:config>
       </con:testStep>
       <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:testSuite id="d6d8c588-4e9f-41b8-b4d4-cbe2cffc7403" name="Scripts">
+    <con:settings id="8ac001cd-2c56-42b8-837a-4c1843fc2c3e"/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="f0a28348-b063-45f5-a45b-f3a73f98aab5" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Test Case for scritps" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="groovy" name="Groovy Script" id="40bce2d5-20f7-4597-93c6-ec27d2962470">
+        <con:settings/>
+        <con:config>
+          <script>log.info("============= SCRIPT UDPATE PROP =================I")
+
+def propToUpdatte = 'MyProp'
+def newValue = 'new Value'
+
+// --- Con context
+def currTescCase = context.getTestCase()
+log.info("Test case:: ${ currTescCase.name}")
+
+def tcProps =  currTescCase.properties
+
+for (var aProp  in tcProps){
+	log.info("Prop: ${aProp.key}")
+	if(aProp.key == propToUpdatte){
+		aProp.setValue(newValue);
+		break
+	}
+}
+
+def aProp = currTescCase.getProperty(propToUpdatte)
+log.info("aProp : ${aProp}")
+aProp.setValue(newValue);
+
+// con testrunner
+def prop2ToUpdatte = 'SecProp'
+def newValue2 = 'new Value 2'
+testRunner.getTestCase().getProperty(prop2ToUpdatte).setValue(newValue2)</script>
+        </con:config>
+      </con:testStep>
+      <con:properties>
+        <con:property>
+          <con:name>MyProp</con:name>
+          <con:value>new Value</con:value>
+        </con:property>
+        <con:property>
+          <con:name>SecProp</con:name>
+          <con:value>new Value 2</con:value>
+        </con:property>
+      </con:properties>
       <con:reportParameters/>
     </con:testCase>
     <con:properties/>
