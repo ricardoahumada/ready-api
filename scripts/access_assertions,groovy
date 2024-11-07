@@ -1,0 +1,12 @@
+log.info("============= SCRIPT ACCESS ASSERTIONS  =================I")
+
+testRunner.testCase.testSteps.each{ name,props ->
+    log.info "Test step name: $name"
+    // check that the testStep class support assertions     
+    if(props.metaClass.respondsTo(props, "getAssertionList")){
+        // get assertionList
+        props.getAssertionList().each{
+           log.info "-Assertion:  $it.label - $it.status"
+        }
+    }
+}
