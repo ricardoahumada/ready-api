@@ -626,6 +626,16 @@
       </con:testStep>
       <con:properties/>
       <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>156fad68-5ff4-4140-97b4-0d467e1cd146</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>d3c794a8-433f-4ff6-b964-3f487d4528a3</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
     </con:testCase>
     <con:testCase id="31f06a11-3201-4595-b158-3fad6e44ef49" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Rechazo a zona privada cada uno" searchProperties="true" timeout="0">
       <con:settings/>
@@ -825,7 +835,7 @@
           <con:properties>
             <con:property>
               <con:name>token_user</con:name>
-              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTczMDU3LCJleHAiOjE3MzEwNTk0NTd9.H82NFoajj3MF4klcoRanGJNhut2K2DFe-1XOjh8OcVz1zDmWfg2Ba9QQT8teM8XWtLrcKeXlaVUmoQl0NAKQ7Q</con:value>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTczMzc0LCJleHAiOjE3MzEwNTk3NzR9.Cp_fbYK3uSL9rReO9pNHcg53Jwl5EKCM26zVZbMQCwLSgJQPny7dEO8sc_nCjRI0Pcu_cjUUC9JWzRNB8bKQGA</con:value>
             </con:property>
           </con:properties>
           <con:returnProperties>
