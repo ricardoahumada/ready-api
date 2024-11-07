@@ -2055,7 +2055,7 @@
       <con:testStep type="transfer" name="Property Transfer" id="49621b3c-ea19-4777-8244-9025020762cf">
         <con:settings/>
         <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false" disabled="true">
             <con:name>id</con:name>
             <con:sourceType>bid</con:sourceType>
             <con:sourceStep>Properties</con:sourceStep>
@@ -2503,11 +2503,86 @@
     <con:properties/>
     <con:reportParameters/>
   </con:testSuite>
-  <con:testSuite id="d6d8c588-4e9f-41b8-b4d4-cbe2cffc7403" name="Scripts">
+  <con:testSuite id="d6d8c588-4e9f-41b8-b4d4-cbe2cffc7403" name="Script Sxamples">
     <con:settings id="8ac001cd-2c56-42b8-837a-4c1843fc2c3e"/>
     <con:runType>SEQUENTIAL</con:runType>
     <con:testCase id="f0a28348-b063-45f5-a45b-f3a73f98aab5" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Test Case for scritps" searchProperties="true" timeout="0">
-      <con:settings/>
+      <con:settings>
+        <con:setting id="IncludeOverview">true</con:setting>
+        <con:setting id="IncludeResults">true</con:setting>
+        <con:setting id="FlowLayout">false</con:setting>
+        <con:setting id="ErrorDetails">true</con:setting>
+        <con:setting id="IncludeCoverage">true</con:setting>
+      </con:settings>
+      <con:testStep type="restrequest" name="getOne" id="058227fa-7f38-4ea3-9aa0-759400e95885">
+        <con:settings/>
+        <con:config service="FakeRESTApi.Web V1" resourcePath="/api/v1/Books/{id}" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="getOne" id="2379b833-ed65-4657-9783-d373dd12c9d5" mediaType="application/json">
+            <con:description xsi:nil="true"/>
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://fakerestapi.azurewebsites.net/api/v1/Books/2</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="2e3e231f-a4b6-464c-9924-1157dd225d4e" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="50ecda90-a633-488f-abb6-54e7dc969db9" name="Response SLA">
+              <con:configuration>
+                <SLA>700</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="27746681-f4d6-41bb-a82d-5a55b44cbdcf" name="Script Assertion">
+              <con:configuration>
+                <scriptText>import groovy.json.JsonSlurper
+
+log.info("Executing validate response script...")
+def response = messageExchange.response
+
+// show headers
+def headers = response.responseHeaders
+for (var aHeader in headers){
+	log.info("aHeader: ${aHeader}")
+}
+
+// assert status
+String status = headers.get("#status#")
+log.info("status: ${status}")
+assert (status.indexOf("200") >=0)
+
+// assert body
+def bodyStr = response.contentAsString
+log.info("bodyStr: ${bodyStr}")
+
+// transform to json
+def parser = new JsonSlurper()
+
+def jsonResp = parser.parseText(bodyStr)
+def title = jsonResp.title
+
+log.info("title: ${title}")
+
+assert title ==~ /Book [0-9]{1,}/</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="id" value="2"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>id</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
       <con:testStep type="groovy" name="Groovy Script" id="40bce2d5-20f7-4597-93c6-ec27d2962470">
         <con:settings/>
         <con:config>
@@ -2531,13 +2606,36 @@ for (var aProp  in tcProps){
 }
 
 def aProp = currTescCase.getProperty(propToUpdatte)
-log.info("aProp : ${aProp}")
 aProp.setValue(newValue);
 
 // con testrunner
-def prop2ToUpdatte = 'SecProp'
+def prop2ToUpdate = 'SecProp'
 def newValue2 = 'new Value 2'
-testRunner.getTestCase().getProperty(prop2ToUpdatte).setValue(newValue2)</script>
+testRunner.getTestCase().getProperty(prop2ToUpdate).setValue(newValue2)
+
+// update with previous result
+def result = ''
+def  stepName = "getOne"
+
+for( aResp in testRunner.results ){
+	log.info ">  TestStep [" + aResp.testStep.name + "] finished with status " + aResp.status
+	if( aResp.testStep.name == stepName){		
+		result = aResp.responseContent
+		break;
+	}
+}
+
+testRunner.getTestCase().getProperty(prop2ToUpdate).setValue(result)
+log.info("Test case prop 2: ${testRunner.getTestCase().getProperty(prop2ToUpdate).getValue()} ")</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Lib use" id="646a1b6f-d9ee-4db9-b6fa-0d5f19adb523">
+        <con:settings/>
+        <con:config>
+          <script>import Callee
+
+c = new Callee()
+log.info(c.hello())</script>
         </con:config>
       </con:testStep>
       <con:properties>
@@ -2547,9 +2645,109 @@ testRunner.getTestCase().getProperty(prop2ToUpdatte).setValue(newValue2)</script
         </con:property>
         <con:property>
           <con:name>SecProp</con:name>
-          <con:value>new Value 2</con:value>
+          <con:value>{"id":2,"title":"Book 2","description":"Sanctus zzril adipiscing vero dolore sanctus accusam dolore est dolor sed. Te amet ea diam lorem voluptua elitr duo dolores elitr. Nonummy lorem elitr sed eum vel dolores magna augue est nonummy. Dolor esse sadipscing.\n","pageCount":200,"excerpt":"Et dolor liber takimata. Lorem dolore sit nibh. Lorem invidunt sea dolore consequat aliquyam dolore sit amet sanctus dolor takimata sea justo est. Lobortis eros placerat erat labore kasd est kasd. Sed sed nisl doming dolore magna facilisis ut kasd. Justo placerat sea dignissim sanctus. Magna ut dolore clita kasd vel laoreet. Eleifend sadipscing justo clita nihil dolor nulla mazim amet lorem justo erat autem erat lorem ipsum. Dolor vero velit justo ea autem. Dolor lorem eirmod erat sanctus kasd labore clita labore voluptua ipsum luptatum clita takimata. Rebum assum et sadipscing magna. Wisi amet amet stet dolores clita rebum ipsum elit. Justo luptatum illum duo rebum. At voluptua labore stet nisl est erat. Erat dolores sadipscing dolor sanctus clita praesent dolor dolore justo tempor takimata eirmod takimata imperdiet vero ut. Ea qui voluptua.\nIusto dolore duo takimata accusam. Eirmod sit diam nobis at justo ut elitr eirmod vel dolore hendrerit. Eirmod et justo ea ut lorem rebum. Feugait vero lorem et consetetur ipsum erat at kasd te adipiscing nonumy enim lorem dolore elit et. Ea nulla ad et labore rebum et nonummy autem vero option sadipscing dolor stet duo consequat. Accusam nonummy dolores duo sea kasd kasd nibh esse ea sit ipsum vel gubergren dolore aliquam rebum blandit duo. Kasd magna in feugait facilisis. Et aliquip lorem elitr sit magna blandit nibh vero amet magna labore. Ea magna duis dolore amet velit diam feugiat dolor justo accusam accusam ut clita elit voluptua.\nVel dolor diam dolores aliquip. Aliquip veniam labore nonumy dolor ea sit justo consequat diam voluptua vel. Tincidunt et nonumy rebum consetetur nulla augue amet elitr ipsum. Consequat at sadipscing no sit illum diam sit augue clita enim ipsum. Facer sit volutpat in sit eirmod in volutpat accusam stet. Eum gubergren velit et sadipscing vero et nisl. Amet eirmod wisi lorem eos et dolor justo takimata rebum ut gubergren et ea wisi eos kasd lorem duis. Dolores sea id eos. Sanctus et possim dolor dolores. Velit lorem dolor voluptua magna. Sit lorem adipiscing dolores diam id gubergren stet aliquyam sit lorem feugiat sed iriure est et et nostrud sadipscing. Kasd et sea ea eros lorem consetetur rebum lorem erat dolor aliquyam et stet ipsum et sit diam sea. Rebum facilisis sanctus placerat facilisis dolor magna diam sanctus magna sit takimata eos eirmod duo ea qui. Nihil takimata vel sit consetetur ut gubergren sed ipsum. Diam lorem quod lorem stet amet duis lorem invidunt nulla nonumy esse dolores sed enim ut invidunt vero. Eos dolor lorem labore ut ipsum gubergren dolores duis sed dolore ipsum ut dolor sit dolor accusam. Amet ut sanctus clita ea facilisis labore nonumy lorem et magna sea dolor lorem hendrerit dolore. Vel no sit est voluptua gubergren consetetur ea et clita illum dolor consectetuer nonumy.\nEt magna vero ea voluptua diam feugiat et sea ex kasd lorem lorem nibh facilisis wisi nam sea dolor. Gubergren eros sadipscing vero sit et dolore gubergren dolor no. Sea ipsum delenit gubergren lobortis eirmod accusam et ipsum sit consetetur takimata adipiscing ipsum elitr adipiscing.\nIn amet nonummy dolores hendrerit diam duo amet accumsan takimata eos quis duo iriure justo amet sed. Tempor et duo magna justo lorem velit vero eos voluptua lorem clita ipsum aliquyam. Sadipscing luptatum possim consetetur ut at feugiat zzril duo vero sadipscing eleifend kasd et.\n","publishDate":"2024-11-05T15:38:52.595091+00:00"}</con:value>
         </con:property>
       </con:properties>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="0e9ad401-6a4f-476e-ad5f-9c4b14a1e7a5" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="DataSource Scripts" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="datasource" name="Read CSV" id="82b785b8-4101-4fc2-9417-eb5c815a699b">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Groovy">
+            <con:configuration>
+              <script>// Preconditions: properties "name" and "serial" exist
+log.info("Reading csv ... ")
+
+// Get current row (iteration of n asked to load)
+def row = testRunner.testCase.testSteps["Read CSV"].currentRow;
+log.info("row: ${row}")
+
+// CSV path
+def fileName = "C:/Curso/workspace/ready-api/data_source/books/books.csv";
+log.info("fileName: ${fileName}")
+
+def file = new File(fileName)
+
+/* RAW */
+/*def csvRows = file.readLines().tail()*.split(',')
+
+log.info("csvRows: ${csvRows.size}")
+
+if (row &lt; csvRows.size) {    
+	result['name'] = csvRows[row][0]
+	result['serial'] = csvRows[row][1]
+}*/
+
+/* EFFICIENT */
+
+String readFileLineByLine(String filePath, lineNumber) {
+    File file = new File(filePath)
+    def line, noOfLines = 0;
+    file.withReader { reader ->
+        while ((line = reader.readLine()) != null &amp;&amp; noOfLines &lt;= lineNumber) {
+            //log.info("readFileLineByLine.line: ${noOfLines} -  ${line}")
+            if(noOfLines==lineNumber) break;
+            else noOfLines++
+        }
+    }
+    return line
+}
+
+def aLine = readFileLineByLine(fileName, row+1)
+log.info("aLine: ${aLine}")
+
+if (aLine != null) {
+	def aLineArr = aLine.split(',')
+	result['name'] = aLineArr[0]
+	result['serial'] = aLineArr[1]
+}</script>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>name</con:property>
+          <con:property>serial</con:property>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasource" name="Read DB" id="0df98fbf-7210-4515-8993-a648779934f9">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Groovy">
+            <con:configuration>
+              <script>import groovy.sql.Sql
+
+// Preconditions: properties "name" and "serial" exist
+log.info("Reading from db ... ")
+
+// Get current row (iteration of n asked to load)
+def it = testRunner.testCase.testSteps["Read DB"].currentRow;
+log.info("iter: ${it}")
+
+// DB params
+def sql = Sql.newInstance('jdbc:mysql://localhost:3306/productsdb', 'products_user', 'rapi123', 'com.mysql.jdbc.Driver')
+
+sql.eachRow("SELECT * FROM products Limit 1 OFFSET ${it} "){ row ->
+	log.info("row: ${row.name} ${row.serial}")
+	result['name'] = row.name
+	result['serial'] = row.serial
+}
+
+sql.close()</script>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>name</con:property>
+          <con:property>serial</con:property>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
       <con:reportParameters/>
     </con:testCase>
     <con:properties/>
