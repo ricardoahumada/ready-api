@@ -2583,6 +2583,27 @@ assert title ==~ /Book [0-9]{1,}/</scriptText>
           </con:restRequest>
         </con:config>
       </con:testStep>
+      <con:testStep type="assertionteststep" name="getOne Assertions" id="0482d0af-a7d6-4d28-bd40-8a3698bbfe84">
+        <con:settings/>
+        <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:entry>
+            <con:id>74d858c4-f29e-4ec5-9361-ebb2f05f2954</con:id>
+            <con:isGroup>false</con:isGroup>
+            <con:sourceId>058227fa-7f38-4ea3-9aa0-759400e95885</con:sourceId>
+            <con:propertyName>Response</con:propertyName>
+            <con:assertion type="JsonPath RegEx Match" name="JSONPath RegEx Match" id="4874480c-1c42-4fc9-8957-2222c052ae18">
+              <con:configuration>
+                <path>$['title']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+                <regEx>Book [0-9]{1,}</regEx>
+              </con:configuration>
+            </con:assertion>
+          </con:entry>
+        </con:config>
+      </con:testStep>
       <con:testStep type="groovy" name="Groovy Script" id="40bce2d5-20f7-4597-93c6-ec27d2962470">
         <con:settings/>
         <con:config>
@@ -2614,10 +2635,11 @@ def newValue2 = 'new Value 2'
 testRunner.getTestCase().getProperty(prop2ToUpdate).setValue(newValue2)
 
 // update with previous result
+def testResults = testRunner.results
 def result = ''
 def  stepName = "getOne"
 
-for( aResp in testRunner.results ){
+for( aResp in testResults ){
 	log.info ">  TestStep [" + aResp.testStep.name + "] finished with status " + aResp.status
 	if( aResp.testStep.name == stepName){		
 		result = aResp.responseContent
@@ -2645,7 +2667,7 @@ log.info(c.hello())</script>
         </con:property>
         <con:property>
           <con:name>SecProp</con:name>
-          <con:value>{"id":2,"title":"Book 2","description":"Sanctus zzril adipiscing vero dolore sanctus accusam dolore est dolor sed. Te amet ea diam lorem voluptua elitr duo dolores elitr. Nonummy lorem elitr sed eum vel dolores magna augue est nonummy. Dolor esse sadipscing.\n","pageCount":200,"excerpt":"Et dolor liber takimata. Lorem dolore sit nibh. Lorem invidunt sea dolore consequat aliquyam dolore sit amet sanctus dolor takimata sea justo est. Lobortis eros placerat erat labore kasd est kasd. Sed sed nisl doming dolore magna facilisis ut kasd. Justo placerat sea dignissim sanctus. Magna ut dolore clita kasd vel laoreet. Eleifend sadipscing justo clita nihil dolor nulla mazim amet lorem justo erat autem erat lorem ipsum. Dolor vero velit justo ea autem. Dolor lorem eirmod erat sanctus kasd labore clita labore voluptua ipsum luptatum clita takimata. Rebum assum et sadipscing magna. Wisi amet amet stet dolores clita rebum ipsum elit. Justo luptatum illum duo rebum. At voluptua labore stet nisl est erat. Erat dolores sadipscing dolor sanctus clita praesent dolor dolore justo tempor takimata eirmod takimata imperdiet vero ut. Ea qui voluptua.\nIusto dolore duo takimata accusam. Eirmod sit diam nobis at justo ut elitr eirmod vel dolore hendrerit. Eirmod et justo ea ut lorem rebum. Feugait vero lorem et consetetur ipsum erat at kasd te adipiscing nonumy enim lorem dolore elit et. Ea nulla ad et labore rebum et nonummy autem vero option sadipscing dolor stet duo consequat. Accusam nonummy dolores duo sea kasd kasd nibh esse ea sit ipsum vel gubergren dolore aliquam rebum blandit duo. Kasd magna in feugait facilisis. Et aliquip lorem elitr sit magna blandit nibh vero amet magna labore. Ea magna duis dolore amet velit diam feugiat dolor justo accusam accusam ut clita elit voluptua.\nVel dolor diam dolores aliquip. Aliquip veniam labore nonumy dolor ea sit justo consequat diam voluptua vel. Tincidunt et nonumy rebum consetetur nulla augue amet elitr ipsum. Consequat at sadipscing no sit illum diam sit augue clita enim ipsum. Facer sit volutpat in sit eirmod in volutpat accusam stet. Eum gubergren velit et sadipscing vero et nisl. Amet eirmod wisi lorem eos et dolor justo takimata rebum ut gubergren et ea wisi eos kasd lorem duis. Dolores sea id eos. Sanctus et possim dolor dolores. Velit lorem dolor voluptua magna. Sit lorem adipiscing dolores diam id gubergren stet aliquyam sit lorem feugiat sed iriure est et et nostrud sadipscing. Kasd et sea ea eros lorem consetetur rebum lorem erat dolor aliquyam et stet ipsum et sit diam sea. Rebum facilisis sanctus placerat facilisis dolor magna diam sanctus magna sit takimata eos eirmod duo ea qui. Nihil takimata vel sit consetetur ut gubergren sed ipsum. Diam lorem quod lorem stet amet duis lorem invidunt nulla nonumy esse dolores sed enim ut invidunt vero. Eos dolor lorem labore ut ipsum gubergren dolores duis sed dolore ipsum ut dolor sit dolor accusam. Amet ut sanctus clita ea facilisis labore nonumy lorem et magna sea dolor lorem hendrerit dolore. Vel no sit est voluptua gubergren consetetur ea et clita illum dolor consectetuer nonumy.\nEt magna vero ea voluptua diam feugiat et sea ex kasd lorem lorem nibh facilisis wisi nam sea dolor. Gubergren eros sadipscing vero sit et dolore gubergren dolor no. Sea ipsum delenit gubergren lobortis eirmod accusam et ipsum sit consetetur takimata adipiscing ipsum elitr adipiscing.\nIn amet nonummy dolores hendrerit diam duo amet accumsan takimata eos quis duo iriure justo amet sed. Tempor et duo magna justo lorem velit vero eos voluptua lorem clita ipsum aliquyam. Sadipscing luptatum possim consetetur ut at feugiat zzril duo vero sadipscing eleifend kasd et.\n","publishDate":"2024-11-05T15:38:52.595091+00:00"}</con:value>
+          <con:value>new Value 2</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
