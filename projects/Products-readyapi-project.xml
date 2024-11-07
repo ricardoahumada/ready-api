@@ -57,6 +57,7 @@
             <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
           <con:parameterOrder>
             <con:entry>uid</con:entry>
@@ -646,7 +647,7 @@
       <con:properties>
         <con:property>
           <con:name>user_token_tc</con:name>
-          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTA4NTE0LCJleHAiOjE3MzA5OTQ5MTR9.DktZvZRLVQBYfsBKK5YdziDRXMAN3S6dt5oIiAvSZI-lpbVy0EgrH3hzEImLDF2v4EnNINMMkfdHAGrKq1w2Kg</con:value>
+          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTk3NDA2LCJleHAiOjE3MzEwODM4MDZ9.Mbmvj8cVYLGZDp3zdUUFrtmUFVbtq6DxTMCPlnqNv-WVC8u09zyQzgZZ6pNf3XPqPZ1w0-YXWt030JLw5Walqg</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -830,7 +831,7 @@
       <con:properties/>
       <con:reportParameters/>
     </con:testCase>
-    <con:testCase id="f4348bda-2a80-4de0-b35c-d9da07e7734e" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="ScriptsTC" searchProperties="true" timeout="0">
+    <con:testCase id="f4348bda-2a80-4de0-b35c-d9da07e7734e" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="*** ScriptSamples ***" searchProperties="true" timeout="0">
       <con:settings/>
       <con:testStep type="restrequest" name="login user" id="bc00cfc1-3f4d-48e1-a6db-9302ee136c82">
         <con:settings/>
@@ -1246,7 +1247,7 @@ log.info c.hello("Mike")</script>
       <con:properties>
         <con:property>
           <con:name>token_tc</con:name>
-          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwODE5MzIwLCJleHAiOjE3MzA5MDU3MjB9.I5OxWr2oq9cFrUBrW-fGIp5dZ39iWT7f2GbG92xMb91cjSznBScib3mtLhmDY9m6b2LBkcA0RPqY3yUZo5otvg</con:value>
+          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTk3Mzc0LCJleHAiOjE3MzEwODM3NzR9.soSeXHtBIhcv28-7xqeODjrty6xQA2GIi15olvBWQmMkmbGD82oawNdJqspkwZzrOwauUKZ6AcHVaEaUgzd0gg</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>

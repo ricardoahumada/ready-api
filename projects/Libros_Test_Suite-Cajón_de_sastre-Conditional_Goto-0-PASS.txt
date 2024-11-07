@@ -1,0 +1,8 @@
+Status: PASS
+Time Taken: 506
+Size: 0
+Timestamp: Wed Nov 06 22:28:11 CET 2024
+TestStep: Conditional Goto
+
+----------------- Messages ------------------------------
+Matched condition [Properties], transferring to [Properties]

@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="a76ed7c5-0aaf-4fcd-92be-988e3fb4fe48" created="3.55.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="Libros" resourceRoot="" projectVersion="" updated="3.55.0 2024-10-04T09:33:05Z" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings/>
+<con:soapui-project id="a76ed7c5-0aaf-4fcd-92be-988e3fb4fe48" created="3.55.0" activeEnvironment="prod" encryptionMode="Not encrypted" name="Libros" resourceRoot="" projectVersion="" updated="3.55.0 2024-10-04T09:33:05Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerUIAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Settings File Password" value=""/>
+  <con:entry key="Report Format(s)" value="XML"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="true"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Slack Channel(s)" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Test Suite Tags" value=""/>
+  <con:entry key="Select Report Type" value="JUnit-Style report for automation"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="Libros Test Suite"/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Select test suits containing:" value="All tags"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Select test cases containing:" value="All tags"/>
+  <con:entry key="Test Case" value="Explorando libros"/>
+  <con:entry key="Slack Access Token" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="TestRunner Path" value="D:\Program Files\SmartBear2\ReadyAPI-3.55.0\bin"/>
+  <con:entry key="Environment" value="No Environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value="${WORKSPACE}"/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting>
+  </con:settings>
   <con:interface xsi:type="con:RestService" id="3f1af8a0-9cf8-4676-979f-bfc38c97243e" name="FakeRESTApi.Web V1" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="https://fakerestapi.azurewebsites.net/swagger/v1/swagger.json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:description xsi:nil="true"/>
     <con:settings id="cd194b04-87c7-441c-bdd1-9c8e46bcdb0e"/>
@@ -14,6 +54,14 @@
     <con:endpoints>
       <con:endpoint>https://fakerestapi.azurewebsites.net/</con:endpoint>
     </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
     <con:resource name="/api/v1/Books" path="/api/v1/Books" id="946841e0-3c71-446a-abdc-1d2dcb285a49">
       <con:settings/>
       <con:parameters/>
@@ -80,7 +128,23 @@
           <con:parameterOrder>
             <con:entry>name</con:entry>
           </con:parameterOrder>
+          <con:environmentSpec>
+            <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
       <con:method name="POST" id="b2705bcc-9439-4371-88f3-f0597b18a7da" method="POST">
         <con:settings/>
@@ -138,6 +202,14 @@
           </con:credentials>
           <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
         <con:request name="Request 2" id="9fd6038a-6a64-45ae-a714-b69fb71d4431" mediaType="text/json; v=1.0">
           <con:settings/>
@@ -155,6 +227,14 @@
             <con:authType>No Authorization</con:authType>
           </con:credentials>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
         <con:request name="Request 3" id="9e431fa8-7484-4628-ba50-cb497146027c" mediaType="application/*+json; v=1.0">
           <con:settings/>
@@ -172,8 +252,32 @@
             <con:authType>No Authorization</con:authType>
           </con:credentials>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:resource>
     <con:resource name="/api/v1/Books/{id}" path="/api/v1/Books/{id}" id="5f4a749d-d23d-4ab0-8c4c-2a26942818e0">
       <con:settings/>
@@ -235,7 +339,23 @@
           <con:parameters>
             <con:entry key="id" value="22"/>
           </con:parameters>
+          <con:environmentSpec>
+            <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
       <con:method name="DELETE" id="535c5f58-26a7-43b5-91e7-ebd14e4de1ed" method="DELETE">
         <con:settings/>
@@ -253,7 +373,23 @@
             <con:authType>No Authorization</con:authType>
           </con:credentials>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
       <con:method name="PUT" id="02d67ed5-6966-4c36-a336-385d63e2f91a" method="PUT">
         <con:settings/>
@@ -316,6 +452,14 @@
           </con:credentials>
           <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
         <con:request name="Request 2" id="7baf265d-c8bb-40dc-992e-6772dd15e5ac" mediaType="text/json; v=1.0" postQueryString="false">
           <con:settings/>
@@ -334,6 +478,14 @@
           </con:credentials>
           <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
         <con:request name="Request 3" id="a2808098-b20b-46b9-975c-b2090bc4b4c9" mediaType="application/*+json; v=1.0" postQueryString="false">
           <con:settings/>
@@ -352,15 +504,45 @@
           </con:credentials>
           <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:resource>
   </con:interface>
   <con:testSuite id="1f3255c5-d446-4019-9ad0-d187d2ca4001" name="Libros Test Suite">
     <con:settings id="50a11a22-2a09-4e88-b6cf-f2b27c311619"/>
     <con:runType>SEQUENTIAL</con:runType>
     <con:testCase id="cf62279c-5394-457f-aee0-6344e3298691" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Explorando libros" searchProperties="true" timeout="0">
-      <con:settings/>
+      <con:settings>
+        <con:setting id="IncludeOverview">true</con:setting>
+        <con:setting id="IncludeResults">true</con:setting>
+        <con:setting id="FlowLayout">false</con:setting>
+        <con:setting id="ErrorDetails">true</con:setting>
+        <con:setting id="IncludeCoverage">true</con:setting>
+      </con:settings>
       <con:testStep type="restrequest" name="Traer todos los libros" id="59aae008-a4ac-4c56-9420-82cd1267e8ea">
         <con:settings/>
         <con:config service="FakeRESTApi.Web V1" resourcePath="/api/v1/Books" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -445,6 +627,14 @@
             <con:parameterOrder>
               <con:entry>name</con:entry>
             </con:parameterOrder>
+            <con:environmentSpec>
+              <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -529,6 +719,14 @@
             <con:parameters>
               <con:entry key="id" value="${id file DS#id}"/>
             </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -547,7 +745,7 @@
         <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:dataSource type="Data Connection">
             <con:configuration>
-              <Connection>MysqlDB( Default environment )</Connection>
+              <Connection>MysqlDB( prod )</Connection>
               <query>Select books.description as books_description, books.id as books_id, books.title as books_title, books.pageCount as books_pageCount, books.excerpt as books_excerpt, books.publishDate as books_publishDate
 From books</query>
               <fetchSize>100</fetchSize>
@@ -600,6 +798,14 @@ From books</query>
             </con:credentials>
             <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
             <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -609,9 +815,9 @@ From books</query>
         </con:settings>
         <con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:dbConnectionName>MysqlDB</con:dbConnectionName>
-          <con:driver>com.mysql.jdbc.Driver</con:driver>
-          <con:connectionString>jdbc:mysql://localhost:3306/readyapidb?user=readyapi_user&amp;password=PASS_VALUE</con:connectionString>
-          <con:password>rapi123</con:password>
+          <con:driver xsi:nil="true"/>
+          <con:connectionString xsi:nil="true"/>
+          <con:password/>
           <con:connectionProperties/>
           <con:query>SELECT * FROM books LIMIT 10</con:query>
           <con:properties/>
@@ -659,6 +865,14 @@ From books</query>
         <con:status>NONE</con:status>
         <con:properties/>
       </con:breakPoints>
+      <con:environmentSpec>
+        <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:testCase>
     <con:testCase id="cdbf2928-a291-4b35-a6bf-57ae05aa66d9" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Cajón de sastre" searchProperties="true" timeout="0">
       <con:settings/>
@@ -703,6 +917,14 @@ From books</query>
             <con:parameterOrder>
               <con:entry>name</con:entry>
             </con:parameterOrder>
+            <con:environmentSpec>
+              <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -775,6 +997,14 @@ From books</query>
             <con:parameters>
               <con:entry key="id" value="3"/>
             </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -808,11 +1038,44 @@ From books</query>
       </con:testStep>
       <con:properties/>
       <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:testCase>
     <con:properties/>
     <con:reportParameters/>
+    <con:environmentSpec>
+      <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:testSuite>
-  <con:requirements/>
+  <con:requirements>
+    <con:requirement>
+      <con:id>R1</con:id>
+      <con:name/>
+      <con:description/>
+      <con:status/>
+      <con:links/>
+      <con:testCases>
+        <con:entry>cf62279c-5394-457f-aee0-6344e3298691</con:entry>
+        <con:entry>cdbf2928-a291-4b35-a6bf-57ae05aa66d9</con:entry>
+      </con:testCases>
+    </con:requirement>
+    <con:requirement>
+      <con:id>R2</con:id>
+      <con:links/>
+      <con:testCases/>
+    </con:requirement>
+  </con:requirements>
   <con:properties>
     <con:property>
       <con:name>MyProp</con:name>
@@ -884,6 +1147,54 @@ From books</query>
 // pw.close()
 // fos.close()</con:script>
   </con:eventHandlers>
+  <con:environment id="7accd1e2-e469-4ff6-bedb-c95fb5e44607" name="dev" index="0">
+    <con:service type="REST" name="FakeRESTApi.Web V1">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://fakerestapi.azurewebsites.net/</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>MyProp</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>val</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>name</con:name>
+      <con:value/>
+    </con:property>
+    <con:databaseConnectionContainer>
+      <con:databaseConnection>
+        <con:name>MysqlDB</con:name>
+        <con:connectionProperties/>
+      </con:databaseConnection>
+    </con:databaseConnectionContainer>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="b937d13a-fa0c-4eb3-a12b-455b09772e11" name="prod" index="1">
+    <con:service type="REST" name="FakeRESTApi.Web V1">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="" areGlobalProxySettingsIgnored="false">https://fakerestapi.azurewebsites.net:443/</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>MyProp</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>val</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>name</con:name>
+      <con:value/>
+    </con:property>
+    <con:databaseConnectionContainer>
+      <con:databaseConnection>
+        <con:name>MysqlDB</con:name>
+        <con:connectionProperties/>
+      </con:databaseConnection>
+    </con:databaseConnectionContainer>
+    <con:jmsConnectionContainer/>
+  </con:environment>
   <con:authRepository>
     <con:oAuth20AuthEntry>
       <con:name>user</con:name>
@@ -895,5 +1206,13 @@ From books</query>
       <con:responseType>id_token</con:responseType>
     </con:oAuth20AuthEntry>
   </con:authRepository>
+  <con:environmentSpec>
+    <con:entry environmentId="7accd1e2-e469-4ff6-bedb-c95fb5e44607">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="b937d13a-fa0c-4eb3-a12b-455b09772e11">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
   <con:tags/>
 </con:soapui-project>

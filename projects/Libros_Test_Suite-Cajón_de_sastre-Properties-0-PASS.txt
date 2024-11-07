@@ -1,0 +1,9 @@
+Status: PASS
+Time Taken: 45
+Size: 0
+Timestamp: Wed Nov 06 22:28:12 CET 2024
+TestStep: Properties
+
+----------------- Messages ------------------------------
+Saved 1 properties to [D:/Shared/MyFiles/ReadyAPI/myprops.properties]
+Loaded 1 properties from [D:/Shared/MyFiles/ReadyAPI/myprops.properties]
