@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="be76e90d-4d41-450a-bb21-d0f41da3ee75" created="3.55.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="MyOnlineShoppingService" projectVersion="" updated="3.55.0 2024-10-04T09:33:05Z" resourceRoot="" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="be76e90d-4d41-450a-bb21-d0f41da3ee75" created="3.55.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="MyOnlineShoppingService" projectVersion="" updated="3.56.0 2024-10-23T13:31:25Z" resourceRoot="" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:interface xsi:type="con:RestService" id="323491ab-a212-4d15-ab36-66b0924a1790" name="Products Management API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="http://localhost:9090/v3/api-docs" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:description>This API exposes endpoints to manage products.</con:description>
@@ -12,6 +12,7 @@
       </con:part>
     </con:definitionCache>
     <con:endpoints>
+      <con:endpoint>http://localhost:8088/</con:endpoint>
       <con:endpoint>http://localhost:9090</con:endpoint>
       <con:endpoint>https://localhost:8443</con:endpoint>
     </con:endpoints>
@@ -647,7 +648,7 @@
       <con:properties>
         <con:property>
           <con:name>user_token_tc</con:name>
-          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTk3NDA2LCJleHAiOjE3MzEwODM4MDZ9.Mbmvj8cVYLGZDp3zdUUFrtmUFVbtq6DxTMCPlnqNv-WVC8u09zyQzgZZ6pNf3XPqPZ1w0-YXWt030JLw5Walqg</con:value>
+          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMxMDg1NjA2LCJleHAiOjE3MzExNzIwMDZ9.yw1RqkxJDLLc906F6G8O7G5wDpu5idVWhkIlolX2UPc9g62GjJbaFrmsrxlE0ZYmRlos9uRbOupr97OTRxurNQ</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -1736,7 +1737,11 @@ for (atestCase in testSuite.testCaseList){
     <con:reportParameters/>
   </con:testSuite>
   <con:requirements/>
-  <con:properties/>
+  <con:properties>
+    <con:property>
+      <con:name>src1</con:name>
+    </con:property>
+  </con:properties>
   <con:wssContainer/>
   <con:databaseConnectionContainer/>
   <con:jmsConnectionContainer/>
