@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:soapui-project id="be76e90d-4d41-450a-bb21-d0f41da3ee75" created="3.55.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="MyOnlineShoppingService" projectVersion="" updated="3.56.0 2024-10-23T13:31:25Z" resourceRoot="" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
-  <con:interface xsi:type="con:RestService" id="323491ab-a212-4d15-ab36-66b0924a1790" name="Products Management API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="http://localhost:9090/v3/api-docs" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:interface xsi:type="con:RestService" id="323491ab-a212-4d15-ab36-66b0924a1790" name="Products Management API - sol" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="http://localhost:9090/v3/api-docs" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:description>This API exposes endpoints to manage products.</con:description>
     <con:settings id="3b745e70-63a5-4eb1-b369-bd3809e49528"/>
     <con:definitionCache type="TEXT" rootPart="http://localhost:9090/v3/api-docs">
