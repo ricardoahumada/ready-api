@@ -1296,7 +1296,14 @@ for (atestCase in testSuite.testCaseList){
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="bc7d89a9-6d1e-433e-8732-39cb42c22648" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>400</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="3c398930-a9d2-4d4b-82e3-dd5f96b52f0d" name="Script Assertion">
+              <con:configuration>
+                <scriptText>import ProductUtils
+
+ProductUtils.eval401NoContent(messageExchange)</scriptText>
               </con:configuration>
             </con:assertion>
             <con:credentials>
@@ -1364,6 +1371,13 @@ for (atestCase in testSuite.testCaseList){
                 <SLA>200</SLA>
               </con:configuration>
             </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="dfb23a5c-c2b6-405a-ade6-4cc29aa96e0d" name="Script Assertion">
+              <con:configuration>
+                <scriptText>import ProductUtils
+
+ProductUtils.eval401NoContent(messageExchange)</scriptText>
+              </con:configuration>
+            </con:assertion>
             <con:credentials>
               <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
               <con:authType>No Authorization</con:authType>
@@ -1391,7 +1405,7 @@ for (atestCase in testSuite.testCaseList){
         <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:dataSource type="File">
             <con:configuration>
-              <fileName>D:/Shared/MyTrainingRepos/ready-api/data_source/products/products_lite.csv</fileName>
+              <fileName>C:/Curso/solutions/ready-api-sols/data_source/products/products_lite.csv</fileName>
               <separator>,</separator>
               <trim>true</trim>
               <charset>Cp1252</charset>
@@ -1436,6 +1450,13 @@ for (atestCase in testSuite.testCaseList){
             <con:assertion type="Response SLA Assertion" id="89364d4c-8295-47c0-98bc-1de01f8f2ce8" name="Response SLA">
               <con:configuration>
                 <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="f878d1cc-c3f1-443b-9fdd-2ab9e61ce4c0" name="Script Assertion">
+              <con:configuration>
+                <scriptText>import ProductUtils
+
+ProductUtils.eval401NoContent(messageExchange)</scriptText>
               </con:configuration>
             </con:assertion>
             <con:credentials>
@@ -1492,7 +1513,7 @@ for (atestCase in testSuite.testCaseList){
           <con:properties>
             <con:property>
               <con:name>user_token_tc</con:name>
-              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTEwMDIzLCJleHAiOjE3MzA5OTY0MjN9.mriBaIMQTzUZK57ga4KuP6jbYhkT8Cyicl1ja7p47jJtbLw_x9KMpxV_SLgMJP3dpcsEsNRi1kGWpXzekp0Vrw</con:value>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMxMTAyMjcyLCJleHAiOjE3MzExODg2NzJ9.QBnwN73RfyUSNDcp__d80R2I31KOzmWzpMsPUvtM_9YPz0wU-sacA3mpyLbpw50crZT8eop9yxANdSmsgG7YxA</con:value>
             </con:property>
           </con:properties>
           <con:returnProperties>
@@ -1531,6 +1552,13 @@ for (atestCase in testSuite.testCaseList){
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
                 <regEx>\[.*id.*name.*serial.*\]</regEx>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="ac216504-97c3-4a5c-8630-8c5e40cfd4fc" name="Script Assertion">
+              <con:configuration>
+                <scriptText>import ProductUtils
+
+ProductUtils.eval200List(messageExchange)</scriptText>
               </con:configuration>
             </con:assertion>
             <con:credentials>

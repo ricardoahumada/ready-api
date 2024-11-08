@@ -1,7 +1,7 @@
 package my.products
 
 class ProductUtils{
-    String readFileLineByLine(String filePath, lineNumber) {
+    static String readFileLineByLine(String filePath, lineNumber) {
         File file = new File(filePath)
         def line, noOfLines = 0;
         file.withReader { reader ->
@@ -13,4 +13,30 @@ class ProductUtils{
         }
         return line
     }
+
+    static boolean eval401NoContent(messageExchange){
+        if(messageExchange!=null){
+            if(messageExchange.response!=null){
+                assert messageExchange.response.contentAsString == null
+            }
+
+            if(messageExchange.responseHeaders!=null){
+                assert messageExchange.responseHeaders["#status#"] =~ /.*401.*/
+            }
+        }
+    }
+
+    static boolean eval200List(messageExchange){
+        if(messageExchange!=null){
+            if(messageExchange.response!=null){
+                assert messageExchange.response.contentAsString != null
+            }
+
+            if(messageExchange.responseHeaders!=null){
+                assert messageExchange.responseHeaders["#status#"] =~ /.*200.*/
+            }
+        }
+    }
+
+
 }
