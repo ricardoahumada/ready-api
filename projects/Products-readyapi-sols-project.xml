@@ -648,7 +648,7 @@
       <con:properties>
         <con:property>
           <con:name>user_token_tc</con:name>
-          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMxMDg1NjA2LCJleHAiOjE3MzExNzIwMDZ9.yw1RqkxJDLLc906F6G8O7G5wDpu5idVWhkIlolX2UPc9g62GjJbaFrmsrxlE0ZYmRlos9uRbOupr97OTRxurNQ</con:value>
+          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMxMzQwMzI2LCJleHAiOjE3MzE0MjY3MjZ9.Wcs3Yq8Y4MtjYZFjVvuYe_f0duSG1Huvf9wJRzCMBSLuUPqgX3yvCnpgkryeXFQMo55UNIekDvb_GOSlgadEGw</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -1074,7 +1074,6 @@ if(status != ''){
 	def sqlstr = "INSERT INTO results (fecha,teststepname,resultado) VALUES (${fecha},'login user', ${passed})" 
 	log.info("sqlstr: ${sqlstr}")
 	
-	
 	// Insert
 	try {
 		sql.execute(sqlstr);
@@ -1241,14 +1240,35 @@ sql.close()</script>
 
 log.info("Using Callee lib  ... ")
 
-c = new Callee()
-log.info c.hello("Mike")</script>
+//c = new Callee()
+//log.info c.hello("Mike")
+
+Callee.salute("Ricardo",log)
+
+Callee.getTestCaseName(context, log)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Assertion results" id="817b754c-2574-4063-88c1-3c80ede8d4c8">
+        <con:settings/>
+        <con:config>
+          <script>log.info("============= SCRIPT ACCESS ASSERTIONS  =================I")
+
+testRunner.testCase.testSteps.each{ name,props ->
+    log.info "Test step name: $name"
+    // check that the testStep class support assertions     
+    if(props.metaClass.respondsTo(props, "getAssertionList")){
+        // get assertionList
+        props.getAssertionList().each{
+           log.info "-Assertion:  $it.label - $it.status"
+        }
+    }
+}</script>
         </con:config>
       </con:testStep>
       <con:properties>
         <con:property>
           <con:name>token_tc</con:name>
-          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTk3Mzc0LCJleHAiOjE3MzEwODM3NzR9.soSeXHtBIhcv28-7xqeODjrty6xQA2GIi15olvBWQmMkmbGD82oawNdJqspkwZzrOwauUKZ6AcHVaEaUgzd0gg</con:value>
+          <con:value/>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -1513,7 +1533,7 @@ ProductUtils.eval401NoContent(messageExchange)</scriptText>
           <con:properties>
             <con:property>
               <con:name>user_token_tc</con:name>
-              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMxMTAyMjcyLCJleHAiOjE3MzExODg2NzJ9.QBnwN73RfyUSNDcp__d80R2I31KOzmWzpMsPUvtM_9YPz0wU-sacA3mpyLbpw50crZT8eop9yxANdSmsgG7YxA</con:value>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMxMzQyOTQxLCJleHAiOjE3MzE0MjkzNDF9.2h5YylZPWLuQGQnZA5H35drcwb1z3BRbe1QhO6Y3d4-Aq01IxFdEdii8bbImu8gV8n1bMb6ICb1x5IV3oqxkvg</con:value>
             </con:property>
           </con:properties>
           <con:returnProperties>
@@ -1653,7 +1673,7 @@ ProductUtils.eval200List(messageExchange)</scriptText>
           <con:properties>
             <con:property>
               <con:name>user_token_tc</con:name>
-              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTExNTA2LCJleHAiOjE3MzA5OTc5MDZ9.W5ZMoX7RdtYaMrJYi4WvvGC9m4n5TElJjCzf0Yr2ygxrtqYcKmN95e_ZtrloyBzxw7YmBzAIsbYLUzuM9n3jPQ</con:value>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMxMzQyOTQxLCJleHAiOjE3MzE0MjkzNDF9.2h5YylZPWLuQGQnZA5H35drcwb1z3BRbe1QhO6Y3d4-Aq01IxFdEdii8bbImu8gV8n1bMb6ICb1x5IV3oqxkvg</con:value>
             </con:property>
           </con:properties>
           <con:returnProperties>

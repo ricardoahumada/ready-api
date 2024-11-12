@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:soapui-workspace name="Solutions" cid="ebfba928-37e5-4d1a-a02b-bb962f6064c9" soapui-version="6.0.0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
-  <con:project name="MyOnlineShoppingService-sols" lastOpened="2024-11-09T00:03:18.555+01:00">C:/Curso/solutions/ready-api-sols/projects/Products-readyapi-sols-project.xml</con:project>
-  <con:project name="Libros" lastOpened="2024-11-09T00:03:27.639+01:00">C:/Curso/solutions/ready-api-sols/projects/Libros-readyapi-project.xml</con:project>
+  <con:project name="MyOnlineShoppingService-sols" lastOpened="2024-11-12T10:07:19.977+01:00">C:/Curso/solutions/ready-api-sols/projects/Products-readyapi-sols-project.xml</con:project>
+  <con:project name="Libros" lastOpened="2024-11-12T09:09:32.875+01:00">C:/Curso/solutions/ready-api-sols/projects/Libros-readyapi-project.xml</con:project>
+  <con:recentItemCollection>
+    <con:moduleId>SoapUiNGModule</con:moduleId>
+    <con:itemId>0fa928b3-421f-45ef-87cf-0059a3dfa2d8</con:itemId>
+    <con:itemId>cd9f3dff-6d12-4b22-902d-af47e483f2c0</con:itemId>
+    <con:itemId>bc00cfc1-3f4d-48e1-a6db-9302ee136c82</con:itemId>
+    <con:itemId>817b754c-2574-4063-88c1-3c80ede8d4c8</con:itemId>
+    <con:itemId>b766381d-3a80-4f97-a97a-c39fa9af93be</con:itemId>
+  </con:recentItemCollection>
   <con:expandedTreeNodes>
     <con:project path="C:\Curso\solutions\ready-api-sols\projects\Products-readyapi-sols-project.xml">
+      <nodeId>34ddccd7-2b20-484c-b407-7f2a3550ce17</nodeId>
+      <nodeId>9555b4de-930d-47eb-8d50-fa7abcf64281</nodeId>
+      <nodeId>323491ab-a212-4d15-ab36-66b0924a1790</nodeId>
+      <nodeId>acd38c6e-6b32-4983-a309-e93324831a1f</nodeId>
+      <nodeId>be59b658-24f4-44c5-b3e6-1385dc7c1349</nodeId>
       <nodeId>be76e90d-4d41-450a-bb21-d0f41da3ee75</nodeId>
+      <nodeId>a92dbe70-cec2-462b-b946-2454732821c9</nodeId>
+      <nodeId>e58cdacd-74d1-4ea1-a8c8-61d484efe73e</nodeId>
+      <nodeId>716047bc-5dd8-40f6-9e6b-8932ca3f1dc6</nodeId>
+      <nodeId>c1623736-b683-4107-8097-8412103dec5c</nodeId>
+      <nodeId>1e2ace9e-167d-4a02-8d27-002d35ef34b7</nodeId>
+      <nodeId>f4348bda-2a80-4de0-b35c-d9da07e7734e</nodeId>
     </con:project>
-    <con:project path="C:\Curso\solutions\ready-api-sols\projects\Libros-readyapi-project.xml"/>
+    <con:project path="C:\Curso\solutions\ready-api-sols\projects\Libros-readyapi-project.xml">
+      <nodeId>a76ed7c5-0aaf-4fcd-92be-988e3fb4fe48</nodeId>
+      <nodeId>a76ed7c5-0aaf-4fcd-92be-988e3fb4fe48apis</nodeId>
+      <nodeId>3f1af8a0-9cf8-4676-979f-bfc38c97243e</nodeId>
+      <nodeId>a76ed7c5-0aaf-4fcd-92be-988e3fb4fe48soapui</nodeId>
+      <nodeId>1f3255c5-d446-4019-9ad0-d187d2ca4001</nodeId>
+    </con:project>
   </con:expandedTreeNodes>
+  <con:scriptBreakpointCollection>
+    <con:scriptTestStep>
+      <con:itemId>0a0c2dd6-4e73-401b-b8e8-9f84b4f983bc</con:itemId>
+      <con:lineNumbers>5</con:lineNumbers>
+    </con:scriptTestStep>
+  </con:scriptBreakpointCollection>
   <con:dashboardTileCollection>
     <con:dashboardTiles>
       <con:dashboardTile tileId="5e115a48-6788-4cfb-b45c-e2965654a8ac" tileType="NEW_TEST"/>
@@ -70,7 +101,11 @@
             <con:today>true</con:today>
           </con:mode>
           <con:project>All Projects</con:project>
-          <con:filter/>
+          <con:filter>
+            <con:avg>true</con:avg>
+            <con:duration>true</con:duration>
+            <con:failures>true</con:failures>
+          </con:filter>
         </con:settings>
       </con:dashboardTile>
       <con:dashboardTile tileId="9a6c801a-b9f2-4b7a-8aa7-9e573128c029" tileType="SERVICEV">
@@ -81,6 +116,9 @@
             <con:column>Location</con:column>
             <con:column>Port</con:column>
           </con:tableSettings>
+          <con:searchSettings>
+            <con:searchType>All</con:searchType>
+          </con:searchSettings>
         </con:settings>
       </con:dashboardTile>
       <con:dashboardTile tileId="a92e1cf2-c015-4732-9662-97182085c3d7" tileType="TEST_SUITE_STATUS">
@@ -165,7 +203,11 @@
             <con:today>true</con:today>
           </con:mode>
           <con:project>All Projects</con:project>
-          <con:filter/>
+          <con:filter>
+            <con:avg>true</con:avg>
+            <con:duration>true</con:duration>
+            <con:failures>true</con:failures>
+          </con:filter>
         </con:settings>
       </con:dashboardTile>
       <con:dashboardTile tileId="1033921d-513e-4bbc-80ff-a43cdda64144" tileType="TEST_CASE_STATUS_TILE">
