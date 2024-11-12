@@ -12,4 +12,9 @@ class Callee {
     def static salute( who, log ) {
         log.info "Hello again $who!" 
     }
+
+    def static getTestCaseName(context, log){
+        def tc_name = context.getTestCase().getName()
+        log.info tc_name
+    }
 }
