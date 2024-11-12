@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="0ef11133-db6c-4e68-8fe3-71132239175c" created="3.56.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="MyOnlineShoppingService" authProfile="Rol user" projectVersion="" updated="3.56.0 2024-10-23T13:31:25Z" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings/>
+<con:soapui-project id="0ef11133-db6c-4e68-8fe3-71132239175c" created="3.56.0" activeEnvironment="dev" encryptionMode="Not encrypted" name="MyOnlineShoppingService" authProfile="Rol user" projectVersion="" updated="3.56.0 2024-10-23T13:31:25Z" resourceRoot="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerUIAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Settings File Password" value=""/>
+  <con:entry key="Report Format(s)" value="XML"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="true"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Slack Channel(s)" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Test Suite Tags" value=""/>
+  <con:entry key="Select Report Type" value="JUnit-Style report for automation"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="&lt;all>"/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Select test suits containing:" value="At least one tag"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Select test cases containing:" value="At least one tag"/>
+  <con:entry key="Test Case" value="&lt;all>"/>
+  <con:entry key="Slack Access Token" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="TestRunner Path" value="C:\Program Files\SmartBear\ReadyAPI-3.56.0\bin"/>
+  <con:entry key="Environment" value="No Environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value="${WORKSPACE}"/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting>
+  </con:settings>
   <con:interface xsi:type="con:RestService" id="c6308d89-d26a-489b-8911-43282470f9f9" name="Products Management API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="http://localhost:9090/v3/api-docs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:description>This API exposes endpoints to manage products.</con:description>
-    <con:settings id="854b273b-90f3-48eb-8064-f43534fd0cc6"/>
+    <con:settings id="854b273b-90f3-48eb-8064-f43534fd0cc6">
+      <con:setting id="c6308d89-d26a-489b-8911-43282470f9f9fileName">Products-Management-API</con:setting>
+    </con:settings>
     <con:definitionCache type="TEXT" rootPart="http://localhost:9090/v3/api-docs">
       <con:part>
         <con:url>http://localhost:9090/v3/api-docs</con:url>
@@ -15,8 +57,15 @@
       <con:endpoint>http://localhost:9090</con:endpoint>
       <con:endpoint>https://localhost:8443</con:endpoint>
     </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
     <con:resource name="/auth/login" path="/auth/login" id="61928a68-b42c-4b90-a6bd-ca147b962e84">
-      <con:settings/>
+      <con:settings id="ecf99132-4f67-448c-b4ef-027a1fed7de5">
+        <con:setting id="61928a68-b42c-4b90-a6bd-ca147b962e84fileName">%2Fauth%2Flogin</con:setting>
+      </con:settings>
       <con:parameters/>
       <con:method name="login" id="7fd28fe0-4202-4ce3-a9a6-3d37187a452e" method="POST">
         <con:settings/>
@@ -57,6 +106,11 @@
           </con:credentials>
           <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
         <con:request name="Login admin" id="f63b9cfe-3d0a-4383-a2b2-4d675f1bd254" mediaType="application/json" postQueryString="false">
           <con:settings>
@@ -74,11 +128,28 @@
           </con:credentials>
           <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:resource>
     <con:resource name="/products" path="/products" id="e3ca9700-081b-40f6-99c0-609ac40bd4f3">
-      <con:settings/>
+      <con:settings id="5fbcf9de-b475-459c-ab86-7c0ce03964de">
+        <con:setting id="e3ca9700-081b-40f6-99c0-609ac40bd4f3fileName">%2Fproducts</con:setting>
+      </con:settings>
       <con:parameters/>
       <con:resource name="" path="" id="0e22ba55-0ec0-4b59-9dcb-e39b148ff59c">
         <con:settings/>
@@ -111,8 +182,23 @@
             <con:parameterOrder>
               <con:entry>text</con:entry>
             </con:parameterOrder>
+            <con:environmentSpec>
+              <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:request>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:method>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:resource>
       <con:method name="getAll" id="5603f676-49a0-4831-8450-f8e124547670" method="GET">
         <con:settings/>
@@ -143,7 +229,17 @@
           <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
           <con:parameterOrder/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
       <con:method name="create" id="9ed3186c-b34b-41a7-8910-c303977fedf6" method="POST">
         <con:description>Endpoint para crear un producto concreto</con:description>
@@ -154,6 +250,7 @@
           <con:status>412</con:status>
           <con:params/>
           <con:description>El producto enviado no es correcto</con:description>
+          <con:sampleContent/>
         </con:representation>
         <con:representation type="RESPONSE">
           <con:mediaType>*/*</con:mediaType>
@@ -182,12 +279,30 @@
             <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:resource>
     <con:resource name="/products/{pid}" path="/products/{pid}" id="8858cec8-d4c4-4a45-9c8e-3489d7d1df9b">
-      <con:settings/>
+      <con:settings id="c8d721d6-faf0-450e-a15c-b8ed54c3c7bd">
+        <con:setting id="8858cec8-d4c4-4a45-9c8e-3489d7d1df9bfileName">%2Fproducts%2F%7Bpid%7D</con:setting>
+      </con:settings>
       <con:parameters/>
       <con:method name="getOne_1" id="2c9f52cf-4b71-40a9-848e-979d97629afa" method="GET">
         <con:description>Endpoint para obtener un producto concreto</con:description>
@@ -220,12 +335,24 @@
         <con:request name="Request 1" id="fee68b3a-89ac-4909-82ac-0660df87ff99" mediaType="application/json">
           <con:settings/>
           <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request/>
           <con:credentials>
             <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
       <con:method name="deleteProduct" id="90684152-6767-4a1c-9612-2258055d3400" method="DELETE">
         <con:settings/>
@@ -250,12 +377,24 @@
         <con:request name="Request 1" id="e38d04ca-8c0b-41d3-be86-caf47dd6bf7f" mediaType="application/json">
           <con:settings/>
           <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request/>
           <con:credentials>
             <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
       <con:method name="updateProduct" id="f4b2d4d1-07d1-4821-a3d5-6946b9b2942e" method="PUT">
         <con:settings/>
@@ -298,12 +437,30 @@
             <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:resource>
     <con:resource name="/users" path="/users" id="f37d7b82-b9de-48f1-9dbc-46eca6844d45">
-      <con:settings/>
+      <con:settings id="96e244d2-47de-4f25-9740-d9a72449e365">
+        <con:setting id="f37d7b82-b9de-48f1-9dbc-46eca6844d45fileName">%2Fusers</con:setting>
+      </con:settings>
       <con:parameters/>
       <con:method name="getAllUsers" id="04fc0cd6-56e5-400f-8ac9-5b1a9bd00c5f" method="GET">
         <con:settings/>
@@ -323,12 +480,24 @@
         <con:request name="Request 1" id="f31919dd-c25a-45d8-b6ba-e17edc38ec2f" mediaType="application/json">
           <con:settings/>
           <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request/>
           <con:credentials>
             <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
       <con:method name="createUser" id="2816eda2-a554-4e4e-b0ac-41c194581a23" method="POST">
         <con:settings/>
@@ -368,12 +537,30 @@
             <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:resource>
     <con:resource name="/users/{uid}" path="/users/{uid}" id="e27fcfd6-e49c-437f-b14b-5e163bcabb2f">
-      <con:settings/>
+      <con:settings id="473c5f7d-5474-4d9d-a3c1-8ae303d9feb7">
+        <con:setting id="e27fcfd6-e49c-437f-b14b-5e163bcabb2ffileName">%2Fusers%2F%7Buid%7D</con:setting>
+      </con:settings>
       <con:parameters/>
       <con:method name="getOne" id="06f719c5-a1fb-4c33-8ad5-4c02914fdee7" method="GET">
         <con:settings/>
@@ -398,12 +585,24 @@
         <con:request name="Request 1" id="4e06cd16-9b69-434d-8c34-b83497d5b90a" mediaType="application/json">
           <con:settings/>
           <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request/>
           <con:credentials>
             <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
       <con:method name="deleteUser" id="f75b02e4-c602-4b3a-b024-8e56f8d6422c" method="DELETE">
         <con:settings/>
@@ -428,12 +627,24 @@
         <con:request name="Request 1" id="eb682d99-8a3b-4f3a-a210-46eec31cfa94" mediaType="application/json">
           <con:settings/>
           <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request/>
           <con:credentials>
             <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
       <con:method name="updateUser" id="b2483292-23ab-4bd5-918f-f3ac818ed809" method="PUT">
         <con:settings/>
@@ -462,20 +673,41 @@
         <con:request name="Request 1" id="c04187a6-fce5-41ca-9e1e-ce414aa85e83" mediaType="application/json">
           <con:settings/>
           <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request/>
           <con:credentials>
             <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
           <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
         </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:resource>
   </con:interface>
   <con:testSuite id="45f52032-342f-47a0-b1d0-cf3808ba1003" name="Identificacion">
-    <con:settings id="3e5beab1-fef0-4eb2-826d-ca0f78c22e08"/>
+    <con:settings id="3e5beab1-fef0-4eb2-826d-ca0f78c22e08">
+      <con:setting id="45f52032-342f-47a0-b1d0-cf3808ba1003fileName">Identificacion</con:setting>
+    </con:settings>
     <con:runType>SEQUENTIAL</con:runType>
     <con:testCase id="e0fbd290-a739-4562-a8ef-da5b0e2428d8" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Obtengo token USER" searchProperties="true" timeout="0">
-      <con:settings/>
+      <con:settings id="7ebc0fe5-c97e-4afc-a64f-1b081f445865">
+        <con:setting id="e0fbd290-a739-4562-a8ef-da5b0e2428d8fileName">Obtengo-token-USER</con:setting>
+      </con:settings>
       <con:testStep type="restrequest" name="login USER" id="4c33daaf-cd2c-4bbc-aa06-4edb87979feb">
         <con:settings/>
         <con:config service="Products Management API" resourcePath="/auth/login" methodName="login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -516,6 +748,11 @@
             </con:credentials>
             <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
             <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -542,15 +779,34 @@
         </con:property>
       </con:properties>
       <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:testCase>
     <con:properties/>
     <con:reportParameters/>
+    <con:environmentSpec>
+      <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:testSuite>
   <con:testSuite id="44ea909c-044a-464f-b08d-869048c1c0d2" name="Productos">
-    <con:settings id="6484fe1c-bdee-4822-8c5b-3431d53bfa18"/>
+    <con:settings id="6484fe1c-bdee-4822-8c5b-3431d53bfa18">
+      <con:setting id="IncludeOverview">true</con:setting>
+      <con:setting id="IncludeResults">true</con:setting>
+      <con:setting id="FlowLayout">false</con:setting>
+      <con:setting id="ErrorDetails">true</con:setting>
+      <con:setting id="IncludeCoverage">true</con:setting>
+      <con:setting id="44ea909c-044a-464f-b08d-869048c1c0d2fileName">Productos</con:setting>
+    </con:settings>
     <con:runType>SEQUENTIAL</con:runType>
     <con:testCase id="f5a31a89-afdb-455d-bdbe-b488a21fd1ef" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Rechazo a zona privada para todos" searchProperties="true" timeout="0">
-      <con:settings/>
+      <con:settings id="7daba995-f2a7-44d8-9edf-e7d680179c63">
+        <con:setting id="f5a31a89-afdb-455d-bdbe-b488a21fd1effileName">Rechazo-a-zona-privada-para-todos</con:setting>
+      </con:settings>
       <con:testStep type="restrequest" name="getAll" id="156fad68-5ff4-4140-97b4-0d467e1cd146">
         <con:settings/>
         <con:config service="Products Management API" methodName="getAll" resourcePath="/products" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -580,12 +836,24 @@
                 <useRegEx>false</useRegEx>
               </con:configuration>
             </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="a9afde42-e650-4306-8542-b49a5963b891" name="Script Assertion">
+              <con:configuration>
+                <scriptText>import ProductUtils
+
+ProductUtils.validar401Null(messageExchange)</scriptText>
+              </con:configuration>
+            </con:assertion>
             <con:credentials>
               <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
               <con:authType>No Authorization</con:authType>
             </con:credentials>
             <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
             <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -610,6 +878,12 @@
                 <SLA>200</SLA>
               </con:configuration>
             </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="44e75b4e-79c0-48bf-a624-4974f3eefa85" name="Script Assertion">
+              <con:configuration>
+                <scriptText>import ProductUtils
+ProductUtils.validar401Null(messageExchange)</scriptText>
+              </con:configuration>
+            </con:assertion>
             <con:credentials>
               <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
               <con:authType>No Authorization</con:authType>
@@ -621,6 +895,11 @@
             <con:parameterOrder>
               <con:entry>text</con:entry>
             </con:parameterOrder>
+            <con:environmentSpec>
+              <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -636,9 +915,16 @@
         <con:status>NONE</con:status>
         <con:properties/>
       </con:breakPoints>
+      <con:environmentSpec>
+        <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:testCase>
     <con:testCase id="31f06a11-3201-4595-b158-3fad6e44ef49" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Rechazo a zona privada cada uno" searchProperties="true" timeout="0">
-      <con:settings/>
+      <con:settings id="77af1ce3-e645-45af-84ef-61df25e9df79">
+        <con:setting id="31f06a11-3201-4595-b158-3fad6e44ef49fileName">Rechazo-a-zona-privada-cada-uno</con:setting>
+      </con:settings>
       <con:testStep type="datasource" name="genIds" id="72fb909e-581b-47ef-9946-4755b909dddd">
         <con:settings/>
         <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -694,6 +980,12 @@
                 <SLA>200</SLA>
               </con:configuration>
             </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="198610a7-bf4d-4086-be24-fd642dd43650" name="Script Assertion">
+              <con:configuration>
+                <scriptText>import ProductUtils
+ProductUtils.validar401Null(messageExchange)</scriptText>
+              </con:configuration>
+            </con:assertion>
             <con:credentials>
               <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
               <con:authType>No Authorization</con:authType>
@@ -702,6 +994,11 @@
             <con:parameters>
               <con:entry key="pid" value="${genIds#pid}"/>
             </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -715,9 +1012,16 @@
       </con:testStep>
       <con:properties/>
       <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:testCase>
     <con:testCase id="746c50fd-28de-4c0c-953d-49b8ce6ccea1" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Acceso a zona privada como USER" searchProperties="true" timeout="0">
-      <con:settings/>
+      <con:settings id="f79429dd-c1cb-47bd-85ac-18a49691de76">
+        <con:setting id="746c50fd-28de-4c0c-953d-49b8ce6ccea1fileName">Acceso-a-zona-privada-como-USER</con:setting>
+      </con:settings>
       <con:testStep type="calltestcase" name="ejecutar Login USER" id="8c74d292-1f10-4ca1-8a0d-3a506029d4e2">
         <con:settings/>
         <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -725,7 +1029,7 @@
           <con:properties>
             <con:property>
               <con:name>token_user</con:name>
-              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTcwNjQxLCJleHAiOjE3MzEwNTcwNDF9.bRYypDfhCuJ6C-e3J211eXZxWM5XGsFjmoW8YmSkzSFLV5qykNOkrJgJzvfoAQl0i9H3_DYOsDbcAGL4i6UUxw</con:value>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMxNDE0MjMzLCJleHAiOjE3MzE1MDA2MzN9.ztxkSV1W8UDIzOAYVcLUpH90PIXHhCK7iZpFqNp1AhBtK4bz-zDu_XkZ7tw5U4rW0Ne_r6Me9hkivQtTsAitjw</con:value>
             </con:property>
           </con:properties>
           <con:returnProperties>
@@ -777,6 +1081,11 @@
             <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
             <con:parameters/>
             <con:parameterOrder/>
+            <con:environmentSpec>
+              <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -820,14 +1129,26 @@
             <con:parameters>
               <con:entry key="pid" value="1"/>
             </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
       <con:properties/>
       <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:testCase>
     <con:testCase id="b7c61f57-a24a-4cdc-a669-09d81cd1ce53" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Flujo Navegacion como USER" searchProperties="true" timeout="0">
-      <con:settings/>
+      <con:settings id="4947c3cf-5ef5-40c5-85b0-4507df6ccf6b">
+        <con:setting id="b7c61f57-a24a-4cdc-a669-09d81cd1ce53fileName">Flujo-Navegacion-como-USER</con:setting>
+      </con:settings>
       <con:testStep type="calltestcase" name="ejecutar Login USER" id="41023d80-f914-42c3-a0ae-5e1bef28ea16">
         <con:settings/>
         <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -835,7 +1156,7 @@
           <con:properties>
             <con:property>
               <con:name>token_user</con:name>
-              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMwOTczMzc0LCJleHAiOjE3MzEwNTk3NzR9.Cp_fbYK3uSL9rReO9pNHcg53Jwl5EKCM26zVZbMQCwLSgJQPny7dEO8sc_nCjRI0Pcu_cjUUC9JWzRNB8bKQGA</con:value>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMxNDE0MjM0LCJleHAiOjE3MzE1MDA2MzR9.KRq2JAvOG3s2stwxawEDpA6fEX3BadOUxnBs5rMnbyIutG-xruc4eOOgGbavhTnTHRYqemiDoBTeusRjwy3w4A</con:value>
             </con:property>
           </con:properties>
           <con:returnProperties>
@@ -887,6 +1208,11 @@
             <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
             <con:parameters/>
             <con:parameterOrder/>
+            <con:environmentSpec>
+              <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -955,6 +1281,11 @@
             <con:parameters>
               <con:entry key="pid" value="${getIds from getAll#pid}"/>
             </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
           </con:restRequest>
         </con:config>
       </con:testStep>
@@ -968,11 +1299,29 @@
       </con:testStep>
       <con:properties/>
       <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:testCase>
     <con:properties/>
     <con:reportParameters/>
+    <con:environmentSpec>
+      <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:testSuite>
-  <con:requirements/>
+  <con:requirements>
+    <con:requirement>
+      <con:id>Login</con:id>
+      <con:links/>
+      <con:testCases>
+        <con:entry>e0fbd290-a739-4562-a8ef-da5b0e2428d8</con:entry>
+      </con:testCases>
+    </con:requirement>
+  </con:requirements>
   <con:properties/>
   <con:wssContainer/>
   <con:databaseConnectionContainer/>
@@ -1035,6 +1384,10 @@
 // pw.close()
 // fos.close()</con:script>
   </con:eventHandlers>
+  <con:environment id="43c8271f-2370-4c3e-81ab-c7b872e4c83e" name="dev" index="0">
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
   <con:authRepository>
     <con:oAuth20AuthEntry>
       <con:name>Rol user</con:name>
@@ -1044,7 +1397,10 @@
       <con:accessTokenStartingStatus>ENTERED_MANUALLY</con:accessTokenStartingStatus>
       <con:oAuth2Flow>JWT_GRANT</con:oAuth2Flow>
       <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
-      <con:jwtConfiguration/>
+      <con:jwtConfiguration>
+        <con:headerProperties/>
+        <con:payloadProperties/>
+      </con:jwtConfiguration>
       <con:responseType>id_token</con:responseType>
     </con:oAuth20AuthEntry>
     <con:oAuth20AuthEntry>
@@ -1055,9 +1411,17 @@
       <con:accessTokenStartingStatus>ENTERED_MANUALLY</con:accessTokenStartingStatus>
       <con:oAuth2Flow>JWT_GRANT</con:oAuth2Flow>
       <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
-      <con:jwtConfiguration/>
+      <con:jwtConfiguration>
+        <con:headerProperties/>
+        <con:payloadProperties/>
+      </con:jwtConfiguration>
       <con:responseType>id_token</con:responseType>
     </con:oAuth20AuthEntry>
   </con:authRepository>
+  <con:environmentSpec>
+    <con:entry environmentId="43c8271f-2370-4c3e-81ab-c7b872e4c83e">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
   <con:tags/>
 </con:soapui-project>

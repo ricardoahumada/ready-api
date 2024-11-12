@@ -13,4 +13,17 @@ class ProductUtils{
         }
         return line
     }
+
+    static void validar401Null(messageExchange){
+        println("validar401Null...")
+        if(messageExchange!=null){
+            if(messageExchange.response!=null){
+                assert messageExchange.response.contentAsString == null
+            }
+
+            if(messageExchange.responseHeaders!=null){
+                assert messageExchange.responseHeaders["#status#"] =~ /.*401.*/
+            }
+        }   
+    }
 }
