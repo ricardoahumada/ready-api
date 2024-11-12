@@ -2636,7 +2636,9 @@ log.info("Test case prop 2: ${testRunner.getTestCase().getProperty(prop2ToUpdate
           <script>import Callee
 
 c = new Callee()
-log.info(c.hello())</script>
+log.info(c.hello())
+
+Callee.salute("Ricardo",log)</script>
         </con:config>
       </con:testStep>
       <con:testStep type="groovy" name="Access assertions" id="0bc21e8c-1e5c-4b8c-95a9-e5e16a096151">
@@ -2658,6 +2660,78 @@ testRunner.testCase.testSteps.each{ name,props ->
 log.info("END....")</script>
         </con:config>
       </con:testStep>
+      <con:testStep type="datasink" name="Save results" id="70555cda-a0dc-4c6c-90ef-d47d68de449c">
+        <con:settings/>
+        <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSink type="Groovy">
+            <con:configuration>
+              <script>import groovy.sql.Sql
+import java.util.Date   
+
+log.info("Storing results scrpit...")
+
+def stepName = "getOne"
+
+// DB params
+def sql = Sql.newInstance('jdbc:mysql://localhost:3306/productsdb', 'products_user', 'rapi123', 'com.mysql.jdbc.Driver')
+sql.connection.autoCommit = false
+
+Date date = new Date()
+def fecha = date.format( 'yyyy-MM-dd' )
+def testStepName = 'login user'
+
+String status = '';
+def passed
+
+/* Using a property */
+/*
+def testStep =  context.testCase.getTestStepByName("Guardar token")
+def stepProperty = testStep.getProperty("token")
+def passed = stepProperty.getValue()!=null
+*/
+
+/* Rerunning a step */
+
+/*
+def rtestStep =  context.testCase.getTestStepByName(stepName)
+String status = testRunner.runTestStep(rtestStep).status
+passed = status.equals("PASS")
+log.info("status: ${status}")*/
+
+/* Searching for results */
+log.info("results: ${testRunner.results}")
+for( r in testRunner.results ){
+	log.info "*** TestStep [" + r.testStep.name + "] finished with status " + r.status
+	if(stepName == r.testStep.name){		
+		status = r.status
+		break;
+	}
+}
+
+if(status != ''){
+	passed = status.equals("PASS")
+	// Geneate query
+	def sqlstr = "INSERT INTO results (fecha,teststepname,resultado) VALUES (${fecha},${stepName}, ${passed})" 
+	log.info("sqlstr: ${sqlstr}")
+	
+	
+	// Insert
+	try {
+		sql.execute(sqlstr);
+		sql.commit()
+		log.info("Successfully committed")
+	}catch(Exception ex) {
+		sql.rollback()
+		log.error("Transaction rollback: ${ex}")
+	}
+	
+	sql.close()
+}</script>
+            </con:configuration>
+          </con:dataSink>
+          <con:properties/>
+        </con:config>
+      </con:testStep>
       <con:properties>
         <con:property>
           <con:name>MyProp</con:name>
@@ -2665,7 +2739,7 @@ log.info("END....")</script>
         </con:property>
         <con:property>
           <con:name>SecProp</con:name>
-          <con:value>{"id":2,"title":"Book 2","description":"Ipsum tincidunt stet velit et tincidunt. Kasd consequat dolor exerci in diam kasd nisl in takimata voluptua vulputate sed est aliquyam takimata magna elitr. Takimata lobortis diam adipiscing facilisis nonumy. Ea diam praesent eum accusam autem. Gubergren voluptua sadipscing at amet amet wisi sed erat praesent diam rebum et justo tempor nonummy elitr dolor eum. Gubergren diam sed amet adipiscing no. Dolores ut ipsum duo sea sadipscing voluptua. Duo magna sed elitr in illum. Magna dolor et dolore dolore. Tempor sit et labore dolore nonumy labore vero. Gubergren amet sanctus vero eu clita vero eirmod cum et nonumy. Takimata aliquyam doming clita zzril invidunt sanctus dolore sanctus velit sit. Quis elitr lobortis.\n","pageCount":200,"excerpt":"Sit justo diam est exerci gubergren. Et aliquip magna. Sit dolor dolor ut amet. Voluptua soluta congue amet quis. Sed dolore sea sadipscing eu aliquam minim amet amet magna kasd et aliquyam. Vel sanctus sanctus ipsum labore volutpat lorem aliquam nihil delenit dolore nulla facer justo tincidunt ex sit dolor dolor. Magna liber magna lorem sadipscing magna eum rebum takimata iusto et. Zzril tation ea nulla ipsum sit te justo nonumy et invidunt clita sea justo amet. Diam tempor dolore dolor ipsum sit nostrud dolor. Diam dolor justo gubergren nonumy diam feugait vulputate eros esse sit tempor dolor eirmod eirmod. Stet eirmod sed duo et magna. Ea magna dignissim nulla dolore. Consetetur ipsum consequat assum ipsum ut aliquam accusam nulla elitr stet et eos et vero. Mazim lobortis eirmod labore gubergren praesent ea elitr et ut assum no consequat ut.\nSadipscing duo lorem sit et diam. Magna diam diam sit magna ut aliquyam et diam at lorem velit amet eos clita. Delenit et invidunt eros dolore dolores nulla voluptua laoreet ipsum sed dolor gubergren vel suscipit dolore. Tincidunt est sadipscing dolore illum sed ullamcorper sit eos kasd minim magna accusam in eirmod at eirmod facilisis. Duo lorem accusam est amet eos dignissim sed at quod et est exerci. Rebum lorem sit. Elit amet id hendrerit iusto rebum erat dolor ea est ipsum accusam et quis accumsan sit sed lorem labore. Nonumy suscipit vulputate clita diam sit et exerci erat. Aliquyam et sea minim tempor clita eirmod lorem clita vero rebum. Voluptua erat at ut gubergren et rebum at dolore sea nulla erat no dignissim erat ea. Lorem labore no diam zzril sanctus nostrud. Ea duo velit. Ea facilisi vero luptatum vel.\nDiam ad praesent diam takimata amet diam sadipscing sanctus. Lobortis erat enim dolore nonumy et sea magna et ut rebum tempor ut erat takimata erat. Ad voluptua sanctus et sit justo eirmod eos rebum at. Dolore consetetur amet dolores consetetur eirmod ut te dolor takimata consequat. Erat tempor enim amet sed sed voluptua clita no eirmod kasd duo feugiat feugiat facilisis kasd tempor aliquyam. Nonummy consetetur eos in nisl. Dolor eos ut sit sadipscing labore ipsum ut labore liber ipsum. Takimata accusam augue labore et amet vero stet ut suscipit lorem ea et lorem quod. Et eleifend sed labore dolore ut vulputate vero nonumy et sit magna diam eos. Et aliquyam tempor eum et sed eum aliquyam euismod amet stet invidunt et eu duis. Illum ipsum suscipit lobortis amet et ipsum ipsum dolores volutpat. Vel et dolor amet et et et et lobortis dolore elitr takimata accusam dolores.\nIpsum consetetur sea dolores praesent dolores aliquyam dolor dolor dolor accusam. Lorem dolores accusam gubergren est ex at diam in facilisi velit. Dolor nostrud invidunt dolore ipsum tincidunt placerat sed clita dolor sit dignissim amet dolor est. Eirmod eros diam sed nisl lorem ea ea at ipsum no justo. Duo voluptua ut ut dolores voluptua. Consetetur erat amet ipsum amet amet invidunt et at magna et dolores justo amet voluptua. Velit minim magna dolor id kasd dolore dolores voluptua ut ut duo. Vel praesent amet dolor justo diam vero kasd. Iriure dolor eos vero delenit tempor est. Et aliquyam sea nostrud sit. Justo diam eirmod ad amet. Volutpat dolor illum veniam dolor ipsum. Vulputate enim ea labore kasd rebum labore justo no sit lorem dolores ipsum facilisis facilisi et eu justo. Ipsum sit ipsum adipiscing nonumy iriure feugait iusto justo. Ullamcorper sit dolor luptatum et vel dolore et ut nulla wisi hendrerit clita veniam et. Lorem sed ut sit magna. Et eirmod ut amet eirmod sea aliquyam at amet minim praesent kasd eirmod sadipscing. Sit ut sanctus.\nEum stet nulla duo quis eos diam et. Duo accusam sit elitr et voluptua dolor eirmod ipsum lorem labore duis delenit lobortis sed. Sed diam consetetur option vulputate vero diam amet lorem at sit accusam. Adipiscing aliquyam luptatum lorem facilisi sanctus et. Lorem laoreet sed accusam gubergren tempor ea ipsum sanctus magna veniam ipsum kasd qui ipsum. Ea amet et voluptua et euismod justo nisl sit consequat tincidunt accusam facilisis duo elitr duis est dolore accusam. Autem ut stet. Ut eros dolor gubergren dolor vero molestie delenit eos clita aliquam nonumy diam invidunt. Lorem exerci tempor vero sanctus sit consetetur eos sadipscing et diam sea sed sea ex ullamcorper stet at. Laoreet veniam rebum ipsum vero. Sanctus vel ea duo magna rebum facilisi nonumy nonummy suscipit at dolor nibh no accusam clita amet sed rebum. Erat sea lorem gubergren suscipit amet sea et. Dolore esse feugiat sanctus invidunt illum takimata. Cum vero ipsum rebum invidunt stet eu labore autem erat sit eirmod in aliquyam. Nulla dolor dolor ut et vero exerci nulla sed sea et eos. Lorem option stet nulla elitr ea et luptatum veniam volutpat diam duo facilisis ut magna ipsum sea dolore. Lorem ipsum vel feugiat erat. Labore amet zzril consetetur sea aliquip consetetur ea ullamcorper nam magna dolor est accusam dolor ipsum.\n","publishDate":"2024-11-05T16:11:52.2652199+00:00"}</con:value>
+          <con:value>{"id":2,"title":"Book 2","description":"Nobis sed eos gubergren esse ut velit elitr justo sit ut sit eu. Dolores diam voluptua at sadipscing sea ea labore ipsum elitr amet rebum. Accusam nonumy odio aliquam no aliquyam clita at accusam accusam et. Et ea labore nonumy lorem. Doming assum dolor sed nulla et dolor dolore. Sadipscing sit cum diam veniam et gubergren eirmod et minim eirmod assum dolor dolores at. Erat lorem ut euismod augue nisl rebum sit gubergren et iusto. Invidunt euismod sed lorem et magna vulputate magna sea. Dolor ea at nonumy duis eos gubergren ea ipsum ut odio. Ut ipsum sea sit accusam vel sanctus suscipit ut lorem ipsum clita. Velit minim labore enim velit aliquip duo magna ullamcorper sit odio ipsum est wisi. Dolore sed dolor accusam no nulla. Elitr labore tempor tincidunt ut luptatum eos invidunt elitr consetetur et elitr diam dolor nibh amet dolore ut et. Facilisis erat eirmod placerat invidunt. Congue est erat sadipscing augue dolor justo ex vero. Eirmod augue rebum. Dolor amet nonumy. Labore diam elitr sanctus sea invidunt consequat ad et vel aliquyam et magna at sanctus ex.\n","pageCount":200,"excerpt":"Ipsum ad ipsum autem at sed commodo eum sed et no dolore euismod velit magna accumsan. Erat dolore minim illum et tempor dolore et ut nam kasd feugait takimata sanctus esse. Elitr labore ea sed vel ea odio tincidunt dolore feugait enim dolores autem et. Sit justo magna dolore consetetur amet hendrerit eos takimata stet diam eirmod amet ipsum ea voluptua at nam. Sed aliquyam dolore takimata feugiat. Esse ut dolore clita labore diam hendrerit sea autem lorem eum et eos vulputate sit iriure in sit. Diam eos placerat et ut diam augue rebum erat rebum et. Ut dolore consetetur sit doming amet dolor ut at. Aliquam lorem volutpat. Ea dolores ea. Et dolor ex dolor ea at magna diam autem eirmod. Sea sadipscing kasd sit aliquip aliquyam sed duo ipsum ullamcorper volutpat sea sed at sit accumsan hendrerit. Ipsum consetetur ipsum et diam duo soluta in. Nonumy sed et sed dolore eos. Est sit ipsum diam nulla erat.\nId elitr dolores hendrerit ea sit at sea ipsum. Wisi et clita sea dolor et vero et sit. Et accumsan dolores ipsum vero lorem magna ipsum takimata. Takimata magna luptatum eum justo at labore. Sed duo tempor et voluptua et sed amet dolor magna labore lorem. Et consequat dolore ut dolor ut ea kasd. Sed est eos gubergren justo ea sed vero dolore aliquyam molestie clita velit lobortis dolor ut accusam augue. Vero ut labore ea hendrerit ipsum aliquam sadipscing kasd et. Duo dolor nostrud lobortis ut takimata tempor dolor cum ut ipsum ut gubergren et. Ipsum tempor soluta consequat dolore et dolore nam lorem magna ut tempor facer clita. Minim accusam invidunt est amet erat. Eleifend vel nulla et facilisi kasd. Diam mazim esse. Tempor ipsum facilisis elitr takimata. Eos et erat sit blandit rebum eum no eu lorem clita possim sit diam. Dolor takimata euismod aliquyam iriure tincidunt in est lorem sadipscing aliquyam clita. Duo luptatum invidunt et voluptua sed iusto elitr ea sadipscing stet takimata lorem ea et ad dolor.\nAmet et odio consetetur imperdiet nonumy molestie vel at rebum accusam exerci est sadipscing eos at vero diam est. Eirmod justo kasd dolores consetetur tation ut diam justo dolores. Et accumsan et ullamcorper elitr ipsum lorem rebum vero erat et dolores. Autem sit voluptua eirmod eirmod elit sed sanctus amet velit et imperdiet at consectetuer dignissim. Eos autem ut magna blandit sit diam dolor feugait accusam diam erat ea et dolor diam sed. Amet laoreet clita vero accusam duo. Dolor aliquyam erat magna ut mazim sit. Clita ea eleifend. Nonummy ipsum vel justo invidunt consetetur dolores ipsum consequat duis. Ea magna lorem erat hendrerit eros amet eirmod ipsum duo nam nam dolore sea takimata rebum duo aliquyam. Erat in ut et rebum sed takimata exerci erat sea sadipscing eum accusam dolor. At nulla dolor ut justo tincidunt lorem sit eu wisi sed vero sed. Nulla aliquyam nonumy elitr et magna ex velit nisl at ea ipsum. Ipsum no duo dolore dolore ipsum magna voluptua gubergren aliquip consetetur eirmod ipsum. Voluptua minim et in sit eirmod et sed nibh.\nSit sadipscing et diam dolore et eleifend accusam delenit diam. Esse vero euismod voluptua ipsum duo magna eos elitr lorem amet vulputate. Clita lorem voluptua. Ea clita dignissim consetetur invidunt. Sit et labore et dolore erat consequat. Ut invidunt esse takimata nonumy sanctus feugiat rebum gubergren eos. Iusto esse euismod vero diam ipsum lorem ea at. Nibh amet diam. Justo in sanctus te dolore dolor amet rebum vulputate in augue aliquyam justo in aliquam diam vero elitr et.\nSea vero adipiscing ipsum accusam delenit lobortis illum rebum et ut justo. Assum et rebum sea odio lorem ut at sea labore elitr. Kasd dolor diam clita nonumy. Rebum quis assum est et accusam sanctus tempor adipiscing labore sit dolore accusam gubergren. Ipsum diam dolores vero dolor aliquyam justo nonumy ipsum duo vulputate duo ipsum consequat id sanctus. Nulla consequat odio nonumy iriure nisl sit dolor aliquam dolor sadipscing et. Rebum diam laoreet eos stet sed molestie amet. Lorem et et erat duis lorem duo dolores ad vero lorem. Consetetur nihil et accusam augue dolor ipsum dolor invidunt velit eros dolor molestie dolore. Magna elit laoreet dolor nibh elitr gubergren. Duis ut stet stet ut esse dolore diam erat labore dolore suscipit amet amet et laoreet erat diam. Vero duo et ea invidunt. Elitr odio vel sit eu ut mazim sed volutpat. Ipsum eum et. Sanctus lorem kasd clita clita vero takimata augue no ea invidunt erat labore est eum sanctus sit. Esse dolore sit sit duis magna at volutpat voluptua aliquyam nonumy labore sea et sed. Eos no ea at aliquyam rebum diam et in labore duis sea at. Elitr possim nulla et et et. Eos autem consetetur diam consectetuer justo vel stet diam ut laoreet nonumy ea dolores stet consetetur sadipscing eos.\n","publishDate":"2024-11-10T09:14:10.2024464+00:00"}</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
