@@ -33,6 +33,12 @@ public class Product {
 
     private Integer price;
 
+    public Product(Long id, String name, String serial) {
+        this.id = id;
+        this.name = name;
+        this.serial = serial;
+    }
+
     public void isValid() throws Exception {
         if (name == null || serial == null) throw new Exception("Producto no válido");
     }

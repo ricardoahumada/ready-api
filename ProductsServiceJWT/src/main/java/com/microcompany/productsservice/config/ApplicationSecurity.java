@@ -26,10 +26,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @Configuration
 //@EnableMethodSecurity(securedEnabled = true)
-@EnableGlobalMethodSecurity(
+/*@EnableGlobalMethodSecurity(
         prePostEnabled = true,
         securedEnabled = true,
-        jsr250Enabled = true)
+        jsr250Enabled = true)*/
 public class ApplicationSecurity {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationSecurity.class);
 
