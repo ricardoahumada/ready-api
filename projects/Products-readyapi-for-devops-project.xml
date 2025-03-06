@@ -831,7 +831,7 @@
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="b321386e-b081-4ae1-af20-af98f00ca6b9" name="Response SLA">
               <con:configuration>
-                <SLA>300</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:assertion type="JsonPath RegEx Match" id="0aec2146-4fd8-40eb-a69e-808287b30f12" name="JSONPath RegEx Match">
@@ -896,7 +896,7 @@
       <con:properties>
         <con:property>
           <con:name>user_token_tc</con:name>
-          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMzMjA1MjQxLCJleHAiOjE3MzMyOTE2NDF9.A1tCQsFFFK-A1A6hC5oxy5ngDMOc0TXoid73v4GNC62YUA9Vm7PFWchCHDmqX7dhfcIUZcsmoutv0LhFj0-J1g</con:value>
+          <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMzNzQ5NzQ4LCJleHAiOjE3MzM4MzYxNDh9.bhDGVlEgOJuHup3zeQefSIkCqTZHkSphhSRBmtZuKi5htDadMfY_tp6lr5Y1pOKzVF_tsxFBsRmlSsiQ9MnR5g</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -929,7 +929,7 @@
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="416fc00c-2c44-40a3-b28a-bf5e89579e80" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:assertion type="JsonPath RegEx Match" id="935ba3f3-d544-42dc-b2b7-203f5c1feb97" name="JSONPath RegEx Match">
@@ -1065,7 +1065,7 @@
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="62f9a976-344b-4970-9ec5-dc08ddd03ef4" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:assertion type="Simple NotContains" id="2e6d64bc-4374-4fea-a12f-1cd3d01ab0b4" name="Not Contains">
@@ -1153,7 +1153,7 @@ for (atestCase in testSuite.testCaseList){
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="bc7d89a9-6d1e-433e-8732-39cb42c22648" name="Response SLA">
               <con:configuration>
-                <SLA>400</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:assertion type="GroovyScriptAssertion" id="3c398930-a9d2-4d4b-82e3-dd5f96b52f0d" name="Script Assertion">
@@ -1230,7 +1230,7 @@ ProductUtils.eval401NoContent(messageExchange)</scriptText>
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="627873b7-8ee4-40e2-af33-c1b57a569d9e" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:assertion type="GroovyScriptAssertion" id="dfb23a5c-c2b6-405a-ade6-4cc29aa96e0d" name="Script Assertion">
@@ -1324,7 +1324,7 @@ ProductUtils.eval401NoContent(messageExchange)</scriptText>
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="89364d4c-8295-47c0-98bc-1de01f8f2ce8" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:assertion type="GroovyScriptAssertion" id="f878d1cc-c3f1-443b-9fdd-2ab9e61ce4c0" name="Script Assertion">
@@ -1398,7 +1398,7 @@ ProductUtils.eval401NoContent(messageExchange)</scriptText>
           <con:properties>
             <con:property>
               <con:name>user_token_tc</con:name>
-              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMzMjA1MjQ5LCJleHAiOjE3MzMyOTE2NDl9.rd24PFt5Y_DCO5BFIuhahI14fRyImvgzMswg2WhmafZo0-Irup8UaGYNRLrWVmWSenL0hkSU-EbAV1YBkqzTRw</con:value>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMzNjcyNDc5LCJleHAiOjE3MzM3NTg4Nzl9.l5hW1b6WQdOzqgRCPg8X9w9xIOQeekE34lmjtdcLU0kVTPNGibP8Uhe82DTwB8Z4ko3Tx_A67jdWfaf107RhYw</con:value>
             </con:property>
           </con:properties>
           <con:returnProperties>
@@ -1426,7 +1426,7 @@ ProductUtils.eval401NoContent(messageExchange)</scriptText>
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="aabd3fdc-fea0-48cf-9561-036dd9cfc1b3" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:assertion type="JsonPath RegEx Match" id="cd204c50-7a3f-43bb-8982-4f02a4a96b37" name="JSONPath RegEx Match">
@@ -1479,7 +1479,7 @@ ProductUtils.eval200List(messageExchange)</scriptText>
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="adeee27e-0658-40de-9985-3a2b35dbfef8" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:credentials>
@@ -1519,7 +1519,7 @@ ProductUtils.eval200List(messageExchange)</scriptText>
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="adeee27e-0658-40de-9985-3a2b35dbfef8" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:credentials>
@@ -1558,7 +1558,7 @@ ProductUtils.eval200List(messageExchange)</scriptText>
           <con:properties>
             <con:property>
               <con:name>user_token_tc</con:name>
-              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMzMjA1MjQ5LCJleHAiOjE3MzMyOTE2NDl9.rd24PFt5Y_DCO5BFIuhahI14fRyImvgzMswg2WhmafZo0-Irup8UaGYNRLrWVmWSenL0hkSU-EbAV1YBkqzTRw</con:value>
+              <con:value>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLHVzZXJAZW1haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJjb20ubWljcm9jb21wYW55IiwiaWF0IjoxNzMzNjcyNDgxLCJleHAiOjE3MzM3NTg4ODF9.s2Jx2pfhs1d_mJ5KikIvPPHrMpqwlXX6281wcg68T62RJ06gQUeAkIgOT4MvIOlDQPP_r-eLdRyPUawE3_fdNA</con:value>
             </con:property>
           </con:properties>
           <con:returnProperties>
@@ -1586,7 +1586,7 @@ ProductUtils.eval200List(messageExchange)</scriptText>
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="aabd3fdc-fea0-48cf-9561-036dd9cfc1b3" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:assertion type="JsonPath RegEx Match" id="cd204c50-7a3f-43bb-8982-4f02a4a96b37" name="JSONPath RegEx Match">
@@ -1651,7 +1651,7 @@ ProductUtils.eval200List(messageExchange)</scriptText>
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="ba1a8f57-eb1c-435e-aa9d-8d7cad0623db" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>${#Project#CSLA}</SLA>
               </con:configuration>
             </con:assertion>
             <con:credentials>
@@ -1702,6 +1702,9 @@ ProductUtils.eval200List(messageExchange)</scriptText>
     <con:property>
       <con:name>https_endpoint</con:name>
     </con:property>
+    <con:property>
+      <con:name>CSLA</con:name>
+    </con:property>
   </con:properties>
   <con:wssContainer/>
   <con:databaseConnectionContainer/>
@@ -1715,7 +1718,10 @@ ProductUtils.eval200List(messageExchange)</scriptText>
       <con:accessTokenStartingStatus>ENTERED_MANUALLY</con:accessTokenStartingStatus>
       <con:oAuth2Flow>JWT_GRANT</con:oAuth2Flow>
       <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
-      <con:jwtConfiguration/>
+      <con:jwtConfiguration>
+        <con:headerProperties/>
+        <con:payloadProperties/>
+      </con:jwtConfiguration>
       <con:responseType>id_token</con:responseType>
     </con:oAuth2Profile>
   </con:oAuth2ProfileContainer>
@@ -1760,6 +1766,10 @@ ProductUtils.eval200List(messageExchange)</scriptText>
     <con:property>
       <con:name>https_endpoint</con:name>
       <con:value>http://localhost:8080</con:value>
+    </con:property>
+    <con:property>
+      <con:name>CSLA</con:name>
+      <con:value>400</con:value>
     </con:property>
     <con:databaseConnectionContainer/>
     <con:jmsConnectionContainer/>
